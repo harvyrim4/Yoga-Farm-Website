@@ -5,11 +5,14 @@
 *.jsonl
 
 # Video files — too large for GitHub (host separately when deploying)
-*.mp4
-*.mov
-*.MOV
-*.avi
-*.webm
+brand_assets/*.mp4
+brand_assets/*.mov
+brand_assets/*.MOV
+brand_assets/*.avi
+brand_assets/*.webm
+.claude/brand_assets/*.mp4
+.claude/brand_assets/*.mov
+.claude/brand_assets/*.MOV
 
 # Dev-only screenshot folder
 temporary screenshots/
