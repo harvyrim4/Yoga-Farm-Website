@@ -4,8 +4,8 @@
 .claude/skills/
 *.jsonl
 
-# Video files — too large for GitHub (host separately when deploying)
-brand_assets/*.mp4
+# Video files — large files excluded until ready to push
+# landscapevid.MOV (177 MB) excluded until converted to .mp4
 brand_assets/*.mov
 brand_assets/*.MOV
 brand_assets/*.avi
