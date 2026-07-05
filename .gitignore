@@ -1,0 +1,23 @@
+# Claude workspace files (not part of the website)
+.claude/memory/
+.claude/plans/
+.claude/skills/
+*.jsonl
+
+# Video files — too large for GitHub (host separately when deploying)
+*.mp4
+*.mov
+*.MOV
+*.avi
+*.webm
+
+# Dev-only screenshot folder
+temporary screenshots/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node
+node_modules/

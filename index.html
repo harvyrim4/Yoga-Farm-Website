@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoga Farm 3217 — Yoga Retreats, Equine Therapy &amp; Wellness · Surf Coast Victoria</title>
+  <meta name="description" content="Yoga Farm 3217 — a wellness sanctuary near Geelong offering Yin Yoga, Equine Assisted Therapy, yoga retreats Victoria, meditation, and healing with horses. Mt Duneed, Surf Coast VIC.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sage: #509652;
+      --sage-light: #A8CCA9;
+      --sage-pale: #E6F0E6;
+      --sage-dark: #3A7A3C;
+      --terra: #3C7A3E;
+      --terra-light: #7EB87E;
+      --cream: #F4EDE0;
+      --cream-warm: #EDE1CC;
+      --earth: #1E1710;
+      --earth-mid: #5C4A38;
+      --gold: #C9A96E;
+      --gold-light: #E3C99A;
+      --ff-display: 'Quicksand', system-ui, sans-serif;
+      --ff-body: 'Quicksand', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ff-body); background: var(--cream); color: var(--earth); overflow-x: hidden; line-height: 1.7; }
+    img, video { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 12px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(15,22,15,0.52);
+      backdrop-filter: blur(6px);
+      transition: background 0.5s ease, padding 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.5s ease;
+    }
+    .nav.scrolled {
+      background: rgba(244,237,224,0.94);
+      backdrop-filter: blur(20px);
+      padding: 12px 48px;
+      box-shadow: 0 1px 0 rgba(92,74,56,0.1), 0 8px 32px rgba(30,23,16,0.06);
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo-img {
+      height: 50px; width: auto; object-fit: contain;
+      transition: opacity 0.4s;
+    }
+    .nav.scrolled .nav-logo-img { opacity: 0.9; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; letter-spacing: 0.09em; text-transform: uppercase;
+      color: rgba(244,237,224,0.8);
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: currentColor;
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav.scrolled .nav-links a { color: var(--earth-mid); }
+    .nav.scrolled .nav-links a:hover { color: var(--sage-dark); }
+    /* Nav dropdown */
+    .nav-drop { position: relative; }
+    .nav-drop > a { display: flex; align-items: center; gap: 5px; }
+    .nav-drop > a::after { content: ''; display: block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.6; margin-top: 1px; }
+    .drop-menu {
+      position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%);
+      background: rgba(30,23,16,0.96); backdrop-filter: blur(16px);
+      border: 1px solid rgba(244,237,224,0.1); border-radius: 14px;
+      padding: 8px; min-width: 200px;
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .nav-drop:hover .drop-menu { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .nav.scrolled .drop-menu { background: rgba(244,237,224,0.97); border-color: rgba(92,74,56,0.12); }
+    .drop-menu a {
+      display: block; padding: 10px 14px; border-radius: 8px;
+      font-size: 0.8rem; letter-spacing: 0.07em; text-transform: uppercase;
+      color: rgba(244,237,224,0.75); transition: background 0.2s, color 0.2s;
+    }
+    .drop-menu a:hover { background: rgba(124,158,127,0.15); color: var(--cream); }
+    .nav.scrolled .drop-menu a { color: var(--earth-mid); }
+    .nav.scrolled .drop-menu a:hover { background: var(--sage-pale); color: var(--sage-dark); }
+    /* Focus-visible ring for accessibility */
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--cream); transition: background 0.3s; }
+    .nav.scrolled .hamburger span { background: var(--earth); }
+
+    /* Mobile nav */
+    .mob-nav {
+      display: none; position: fixed; inset: 0; background: var(--earth); z-index: 199;
+      flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .mob-nav.open { display: flex; opacity: 1; pointer-events: all; }
+    .mob-nav a { font-family: var(--ff-display); font-size: 2.5rem; color: var(--cream); font-weight: 300; transition: color 0.2s; }
+    .mob-nav a:hover { color: var(--gold-light); }
+    .mob-close { position: absolute; top: 24px; right: 48px; font-size: 1.5rem; color: var(--cream); opacity: 0.5; cursor: pointer; }
+    .mob-close:hover { opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; height: 100vh; min-height: 680px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      will-change: transform; transform: scale(1.12);
+    }
+    .hero-bg img, .hero-bg video { width: 100%; height: 100%; object-fit: cover; }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(196,112,78,0.28) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 20%, rgba(74,107,77,0.45) 0%, transparent 50%),
+        linear-gradient(to bottom, rgba(30,23,16,0.25) 0%, rgba(30,23,16,0.5) 55%, rgba(30,23,16,0.82) 100%);
+    }
+
+
+    .hero-content {
+      position: relative; z-index: 1;
+      text-align: center; padding: 0 32px; max-width: 1300px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 14px;
+      opacity: 0; transform: translateY(18px);
+      animation: up 1s cubic-bezier(.16,1,.3,1) .3s forwards;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; display: block; height: 1px; width: 36px;
+      background: currentColor; opacity: 0.55;
+    }
+    .hero-h1 {
+      font-family: var(--ff-display); font-weight: 400;
+      font-size: clamp(1.8rem,5vw,4.6rem);
+      line-height: 1.1; letter-spacing: 0.06em;
+      color: var(--cream); margin-bottom: 14px;
+      white-space: nowrap;
+      opacity: 0; transform: translateY(28px);
+      animation: up 1.2s cubic-bezier(.16,1,.3,1) .5s forwards;
+    }
+    .hero-h1 em { font-style: normal; font-weight: 300; color: var(--gold-light); }
+    .hero-sub {
+      font-size: 1.0rem; font-weight: 300;
+      color: rgba(244,237,224,0.72); max-width: 520px;
+      margin: 0 auto 26px; line-height: 1.8;
+      opacity: 0; transform: translateY(18px);
+      animation: up 1s cubic-bezier(.16,1,.3,1) .75s forwards;
+    }
+    .hero-ctas {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      opacity: 0; transform: translateY(18px);
+      animation: up 1s cubic-bezier(.16,1,.3,1) .95s forwards;
+    }
+    .btn-fill {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 15px 34px; background: var(--terra); color: var(--cream);
+      border-radius: 999px; font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 24px rgba(60,122,62,0.34), 0 1px 4px rgba(60,122,62,0.18);
+    }
+    .btn-fill:hover { background: #2d5e2f; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.44); }
+    .btn-fill:active { transform: translateY(0); }
+    .btn-ghost-hero {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 15px 28px; color: rgba(244,237,224,0.8);
+      font-size: 0.875rem; letter-spacing: 0.04em;
+      transition: color 0.3s;
+    }
+    .btn-ghost-hero:hover { color: var(--cream); }
+    .btn-ghost-hero svg { transition: transform 0.3s; }
+    .btn-ghost-hero:hover svg { transform: translateX(4px); }
+
+    .scroll-cue {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: up 1s ease 1.5s forwards;
+    }
+    .scroll-cue span { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,237,224,0.45); }
+    .scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, rgba(244,237,224,0.45), transparent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ── ABOUT ── */
+    .about { padding: 80px 0; background: var(--cream); }
+    .about-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-imgs { position: relative; }
+    .about-main { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 20px; box-shadow: 0 2px 4px rgba(30,23,16,.06),0 12px 32px rgba(30,23,16,.1),0 40px 80px rgba(30,23,16,.07); }
+    .about-accent {
+      position: absolute; bottom: -32px; right: -32px;
+      width: 52%; aspect-ratio: 1; object-fit: cover;
+      border-radius: 14px; border: 6px solid var(--cream);
+      box-shadow: 0 4px 16px rgba(30,23,16,.12),0 16px 48px rgba(30,23,16,.1);
+    }
+    .about-badge {
+      position: absolute; top: 32px; left: -28px;
+      background: var(--terra); color: var(--cream);
+      padding: 18px 22px; border-radius: 14px; text-align: center;
+      box-shadow: 0 8px 32px rgba(60,122,62,.28);
+    }
+    .about-badge .bn { font-family: var(--ff-display); font-size: 1.8rem; font-weight: 700; display: block; line-height: 1; }
+    .about-badge .bl { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: .82; }
+    .about-text { padding-left: 16px; }
+    .sec-label {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra);
+      margin-bottom: 16px;
+    }
+    .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
+    .sec-title { font-family: var(--ff-display); font-size: clamp(2.1rem,3.8vw,3.4rem); font-weight: 700; line-height: 1.14; letter-spacing: -0.02em; }
+    .sec-title em { font-style: normal; font-weight: 300; color: var(--sage-dark); }
+    .about-body { font-size: 1.0625rem; color: var(--earth-mid); line-height: 1.82; margin: 20px 0 0; }
+    .about-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+    .feat { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9375rem; color: var(--earth-mid); }
+    .feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); flex-shrink: 0; margin-top: 8px; }
+
+    /* ── OFFERING CARDS ── */
+    .offerings { padding: 100px 0; background: var(--cream-warm); }
+    .off-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .off-head { text-align: center; margin-bottom: 56px; }
+    .off-head .sec-label { justify-content: center; }
+    .offer-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .offer-card {
+      position: relative; border-radius: 24px; overflow: hidden;
+      min-height: 520px; cursor: pointer;
+    }
+    .offer-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      position: absolute; inset: 0;
+      transition: transform 0.7s cubic-bezier(.16,1,.3,1);
+    }
+    .offer-card:hover img { transform: scale(1.04); }
+    .offer-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,20,10,0.92) 0%, rgba(10,20,10,0.5) 55%, rgba(10,20,10,0.18) 100%);
+    }
+    .offer-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 36px 32px; }
+    .offer-cat { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
+    .offer-title { font-family: var(--ff-display); font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 700; color: var(--cream); margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.15; }
+    .offer-list { list-style: none; margin-bottom: 24px; display: flex; flex-direction: column; gap: 5px; }
+    .offer-list li { font-size: 0.84rem; color: rgba(244,237,224,0.7); display: flex; align-items: center; gap: 8px; line-height: 1.4; }
+    .offer-list li::before { content: ''; display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--sage-light); flex-shrink: 0; }
+    .offer-list .offer-link { color: var(--gold-light); font-size: 0.82rem; margin-top: 4px; }
+    .offer-link a { color: inherit; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+    .offer-link a:hover { color: var(--cream); }
+
+    /* ── TESTIMONIALS ── */
+    .testi { padding: 120px 0; background: var(--earth); overflow: hidden; position: relative; }
+    .testi-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 0% 50%,rgba(80,150,82,.08) 0%,transparent 50%),
+        radial-gradient(ellipse at 100% 50%,rgba(201,169,110,.06) 0%,transparent 50%);
+    }
+    .testi-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; position: relative; z-index: 1; }
+    .testi-head { text-align: center; margin-bottom: 56px; }
+    .testi-head .sec-label { justify-content: center; color: var(--gold); }
+    .testi-head .sec-title { color: var(--cream); }
+    .testi-head .sec-title em { color: var(--gold-light); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .testi-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(244,237,224,.08);
+      border-radius: 20px; padding: 32px 28px;
+    }
+    .testi-stars-row { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .testi-q {
+      font-family: var(--ff-display); font-size: 1.0rem;
+      font-weight: 300; line-height: 1.75;
+      color: rgba(244,237,224,.82); margin-bottom: 24px;
+    }
+    .testi-name { font-size: 0.875rem; font-weight: 600; color: var(--cream); }
+    .testi-loc { font-size: 0.78rem; color: rgba(244,237,224,.45); margin-top: 2px; }
+    .testi-footer { text-align: center; margin-top: 48px; }
+    .testi-all-link {
+      font-size: 0.875rem; color: var(--sage-light); letter-spacing: .04em;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color 0.3s;
+    }
+    .testi-all-link:hover { color: var(--gold-light); }
+
+    /* ── NEWSLETTER ── */
+    .newsletter { padding: 96px 48px; background: var(--sage-pale); }
+    .newsletter-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+    .newsletter-inner .sec-title { margin-bottom: 12px; }
+    .newsletter-inner .sec-title em { color: var(--sage-dark); }
+    .newsletter-sub { font-size: 1rem; color: var(--earth-mid); margin-bottom: 32px; }
+    .newsletter-form { display: flex; gap: 10px; }
+    .newsletter-input {
+      flex: 1; padding: 14px 18px; border-radius: 999px;
+      border: 1px solid rgba(92,74,56,.2); background: var(--cream);
+      font-family: var(--ff-body); font-size: 0.9375rem; color: var(--earth);
+      outline: none; transition: border-color 0.3s;
+    }
+    .newsletter-input:focus { border-color: var(--sage); }
+    .newsletter-input::placeholder { color: rgba(92,74,56,.35); }
+    .newsletter-btn {
+      padding: 14px 28px; border-radius: 999px;
+      background: var(--terra); color: var(--cream);
+      font-family: var(--ff-body); font-size: 0.875rem; font-weight: 500; letter-spacing: .04em;
+      cursor: pointer; border: none;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(60,122,62,.25);
+    }
+    .newsletter-btn:hover { background: #2d5e2f; transform: translateY(-1px); }
+    .newsletter-msg { margin-top: 16px; font-size: 0.875rem; color: var(--sage-dark); min-height: 1.4em; }
+
+    /* ── CONTACT ── */
+    .contact { padding: 120px 0; background: var(--earth); position: relative; overflow: hidden; }
+    .contact::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right,transparent,rgba(201,169,110,.28),transparent); }
+    .con-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 96px; align-items: start; }
+    .con-info .sec-label { color: var(--gold); }
+    .con-info .sec-title { color: var(--cream); }
+    .con-info .sec-title em { color: var(--gold-light); font-weight: 300; font-style: normal; }
+    .con-desc { font-size: 1.05rem; color: rgba(244,237,224,.62); line-height: 1.82; margin: 20px 0 32px; }
+    .con-details { display: flex; flex-direction: column; gap: 20px; }
+    .con-detail { display: flex; align-items: flex-start; gap: 16px; }
+    .con-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(124,158,127,.14);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sage-light); flex-shrink: 0;
+    }
+    .con-lbl { font-size: 0.65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .con-val { font-size: 0.9375rem; color: rgba(244,237,224,.78); line-height: 1.55; }
+    .con-form {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(244,237,224,.08);
+      border-radius: 32px; padding: 40px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .fg { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+    .fg:last-of-type { margin-bottom: 0; }
+    .flabel { font-size: 0.7rem; letter-spacing: .09em; text-transform: uppercase; color: rgba(244,237,224,.45); }
+    .finput, .fselect, .ftextarea {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(244,237,224,.1);
+      border-radius: 12px; padding: 13px 15px;
+      font-family: var(--ff-body); font-size: 0.9375rem; color: var(--cream);
+      outline: none; width: 100%;
+      transition: border-color 0.3s,background 0.3s;
+    }
+    .finput::placeholder, .ftextarea::placeholder { color: rgba(244,237,224,.28); }
+    .finput:focus, .fselect:focus, .ftextarea:focus { border-color: rgba(124,158,127,.48); background: rgba(255,255,255,.08); }
+    .fselect { cursor: pointer; }
+    .fselect option { background: var(--earth); }
+    .ftextarea { resize: none; min-height: 116px; line-height: 1.6; }
+    .fsub {
+      width: 100%; padding: 15px; border-radius: 12px; background: var(--terra);
+      color: var(--cream); font-family: var(--ff-body); font-size: 0.9375rem;
+      font-weight: 500; letter-spacing: .04em; margin-top: 22px;
+      transition: background 0.3s,transform 0.2s,box-shadow 0.3s;
+      box-shadow: 0 4px 24px rgba(60,122,62,.22);
+    }
+    .fsub:hover { background: #2d5e2f; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,.32); }
+    .fsub:active { transform: translateY(0); }
+
+    /* ── FOOTER ── */
+    .footer { background: rgba(12,8,4,1); padding: 64px 0 32px; }
+    .foot-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .foot-2col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 28px;
+    }
+    .foot-left { display: flex; flex-direction: column; gap: 20px; }
+    .foot-addr { font-style: normal; font-size: 0.9rem; color: rgba(244,237,224,.5); line-height: 1.7; }
+    .foot-addr a { color: rgba(244,237,224,.5); text-decoration: none; transition: color 0.2s; }
+    .foot-addr a:hover { color: var(--cream); }
+    .foot-right { padding-top: 4px; }
+    .foot-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 28px;
+    }
+    .foot-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .foot-brand img { height: 64px; width: 64px; object-fit: contain; border-radius: 50%; background: rgba(244,237,224,0.1); padding: 3px; }
+    .foot-brand-text { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--cream); line-height: 1.2; }
+    .foot-brand-sub { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(244,237,224,0.4); text-transform: uppercase; }
+    .foot-desc { font-size: 0.875rem; color: rgba(244,237,224,.42); line-height: 1.78; max-width: 230px; }
+    .foot-social { display: flex; gap: 10px; margin-top: 22px; }
+    .foot-soc {
+      width: 34px; height: 34px; border-radius: 10px;
+      border: 1px solid rgba(244,237,224,.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(244,237,224,.45); font-size: 0.75rem; font-weight: 600;
+      transition: border-color 0.3s,color 0.3s,background 0.3s;
+    }
+    .foot-soc:hover { border-color: var(--sage); color: var(--sage-light); background: rgba(124,158,127,.1); }
+    .foot-col-title { font-size: 0.65rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(244,237,224,.35); margin-bottom: 18px; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .foot-links a { font-size: 0.875rem; color: rgba(244,237,224,.5); transition: color 0.3s; }
+    .foot-links a:hover { color: var(--cream); }
+    .foot-btm { display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-size: 0.8rem; color: rgba(244,237,224,.28); }
+    .foot-legal { display: flex; gap: 24px; }
+    .foot-legal a { font-size: 0.8rem; color: rgba(244,237,224,.28); transition: color 0.3s; }
+    .foot-legal a:hover { color: rgba(244,237,224,.55); }
+
+    /* ── REVEAL ── */
+    .rev { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1),transform 0.8s cubic-bezier(.16,1,.3,1); }
+    .rev.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; } .d5 { transition-delay: .5s; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes up { to { opacity:1; transform:translateY(0); } }
+    @keyframes pulse { 0%,100%{opacity:.45;transform:scaleY(1);}50%{opacity:1;transform:scaleY(.7);} }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      .offer-grid{grid-template-columns:1fr;}
+      .testi-grid{grid-template-columns:repeat(2,1fr);}
+      .foot-grid{grid-template-columns:1fr 1fr;}
+      .foot-2col{grid-template-columns:1fr 1fr;gap:40px;}
+      .con-inner{gap:56px;}
+    }
+    @media(max-width:768px){
+      .nav{padding:20px 24px;}
+      .nav.scrolled{padding:14px 24px;}
+      .nav-links{display:none;}
+      .hamburger{display:flex;}
+      .about-inner{grid-template-columns:1fr;gap:48px;}
+      .about-text{padding-left:0;}
+      .about-accent{display:none;}
+      .about-badge{left:16px;}
+      .con-inner{grid-template-columns:1fr;gap:48px;}
+      .form-row{grid-template-columns:1fr;}
+      .foot-grid{grid-template-columns:1fr;}
+      .foot-2col{grid-template-columns:1fr;}
+      .foot-btm{flex-direction:column;gap:16px;text-align:center;}
+      .testi-grid{grid-template-columns:1fr;}
+      .newsletter-form{flex-direction:column;}
+      .newsletter-btn{border-radius:12px;}
+    }
+    @media(max-width:640px){
+      .nav{padding:10px 20px;}
+      .hero-ctas{flex-direction:column;}
+      .hero-h1{white-space:normal;font-size:clamp(1.8rem,7.5vw,2.8rem);letter-spacing:0.02em;}
+      .off-inner,.testi-inner,.about-inner,.foot-inner{padding:0 20px;}
+      .newsletter{padding:72px 20px;}
+      .offer-card{min-height:420px;}
+      .offer-body{padding:24px 20px;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Mobile Nav -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#healing" onclick="closeMob()">Healing with Horses</a>
+  <a href="#yoga" onclick="closeMob()">Yoga &amp; Events</a>
+  <a href="#retreats" onclick="closeMob()">Retreats</a>
+  <a href="#practitioners" onclick="closeMob()">Our Practitioners</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <img src=".claude/brand_assets/yoga farm 3217 logo green@3x.png" alt="Yoga Farm 3217" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#healing">Healing with Horses</a></li>
+    <li><a href="#yoga">Yoga &amp; Events</a></li>
+    <li class="nav-drop">
+      <a href="#retreats">Retreats</a>
+      <div class="drop-menu">
+        <a href="retreat-october.html">October Retreat</a>
+        <a href="retreat-march.html">March Retreat</a>
+        <a href="corporate-retreats.html">Corporate Retreats</a>
+      </div>
+    </li>
+    <li><a href="#practitioners">Our Practitioners</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg">
+    <video autoplay muted loop playsinline>
+      <source src=".claude/brand_assets/landscapevid.MOV" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="hero-content">
+    <div style="opacity:0;animation:up 0.9s cubic-bezier(.16,1,.3,1) 0s forwards;margin-bottom:10px;">
+      <img src=".claude/brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217"
+        style="width:420px;height:420px;object-fit:contain;margin:0 auto;opacity:0.55;filter:drop-shadow(0 3px 18px rgba(30,23,16,0.35));">
+    </div>
+    <div class="hero-eyebrow">Surfcoast, Victoria, Australia</div>
+    <h1 class="hero-h1">Land.&nbsp; Breathe.&nbsp; Belong.</h1>
+    <p class="hero-sub">A place to reset your nervous system, reconnect with nature and find your people.</p>
+    <div class="hero-ctas">
+      <a href="offerings.html#book" class="btn-fill">
+        Book
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="offerings.html#enquire" class="btn-ghost-hero">
+        Enquire
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-imgs">
+      <video class="about-main" autoplay muted loop playsinline preload="auto">
+        <source src=".claude/brand_assets/damhorsevid.mp4" type="video/mp4">
+      </video>
+      <img src="https://placehold.co/280x280/4A7A4C/C8E0CA?text=" alt="Yoga class" class="about-accent">
+      <div class="about-badge">
+        <span class="bn">Est.</span>
+        <span class="bl">2012</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="sec-label rev">Our Story</div>
+      <h2 class="sec-title rev d1">A Place to <em>Arrive</em></h2>
+      <p class="about-body rev d2">Yoga Farm is 32 acres where you can actually slow down — not just talk about it. Most people say they feel it as soon as they arrive, before a class has even started or a horse has come over to say hello. We've brought together yoga, equine therapy, retreats, and a small community of practitioners, because healing rarely looks like just one thing.</p>
+      <p class="about-body rev d3" style="margin-top:0">Some people come for an hour, some for a weekend, some keep coming back for years. However you find your way here, you're welcome exactly as you are.</p>
+      <div class="about-feats rev d4">
+        <div class="feat"><div class="feat-dot"></div><span>Open-air yoga pavilion</span></div>
+        <div class="feat"><div class="feat-dot"></div><span>Meditation gardens</span></div>
+        <div class="feat"><div class="feat-dot"></div><span>Equine therapy program</span></div>
+        <div class="feat"><div class="feat-dot"></div><span>Retreat accommodation</span></div>
+        <div class="feat"><div class="feat-dot"></div><span>Organic market garden</span></div>
+        <div class="feat"><div class="feat-dot"></div><span>Community workshops</span></div>
+      </div>
+      <a href="#contact" class="btn-fill rev d5" style="display:inline-flex;margin-top:32px;">
+        Enquire
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Offerings -->
+<section class="offerings" id="offerings">
+  <div class="off-inner">
+    <div class="off-head rev">
+      <div class="sec-label">What We Offer</div>
+      <h2 class="sec-title">Ways to <em>Heal &amp; Practise</em></h2>
+    </div>
+    <div class="offer-grid">
+
+      <!-- Healing with Horses -->
+      <div class="offer-card rev" id="healing">
+        <img src=".claude/brand_assets/healinghorsesplacecard.jpg" alt="Equine assisted therapy and healing with horses at Yoga Farm 3217, Surf Coast Victoria">
+        <div class="offer-overlay"></div>
+        <div class="offer-body">
+          <span class="offer-cat">Somatic Healing</span>
+          <h3 class="offer-title">Healing with Horses</h3>
+          <ul class="offer-list">
+            <li>Equine Assisted Therapy</li>
+            <li>Reiki with the Herd</li>
+            <li>Private Equine Assisted Therapy + Yin with Reiki</li>
+          </ul>
+          <a href="offerings.html#enquire" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
+        </div>
+      </div>
+
+      <!-- Yoga & Events -->
+      <div class="offer-card rev d1" id="yoga">
+        <img src=".claude/brand_assets/yoga%26eventsplacecard.png" alt="Yin yoga, meditation and fire horse sessions at Yoga Farm 3217 near Geelong">
+        <div class="offer-overlay"></div>
+        <div class="offer-body">
+          <span class="offer-cat">Movement &amp; Stillness</span>
+          <h3 class="offer-title">Yoga &amp; Events</h3>
+          <ul class="offer-list">
+            <li>Yin Yoga &amp; Meditation</li>
+            <li>Fire Horse Sessions</li>
+            <li>Seasonal Healing Sounds with Yin</li>
+            <li>Summer Solstice Fire Horse Session</li>
+            <li>Monthly Equine Meditation</li>
+          </ul>
+          <a href="offerings.html#book" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Book</a>
+        </div>
+      </div>
+
+      <!-- Retreats -->
+      <div class="offer-card rev d2" id="retreats">
+        <img src=".claude/brand_assets/retreatplacecard.jpg" alt="Yoga and wellness retreats Victoria — October and March retreats at Yoga Farm 3217">
+        <div class="offer-overlay"></div>
+        <div class="offer-body">
+          <span class="offer-cat">Immersive Stays</span>
+          <h3 class="offer-title">Retreats</h3>
+          <ul class="offer-list">
+            <li>October Retreat</li>
+            <li>March Retreat</li>
+            <li class="offer-link"><a href="corporate-retreats.html">Also available: Corporate Retreats →</a></li>
+          </ul>
+          <a href="offerings.html#book" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Book</a>
+        </div>
+      </div>
+
+      <!-- Our Practitioners -->
+      <div class="offer-card rev d3" id="practitioners">
+        <img src=".claude/brand_assets/ourpractitionersplacecard.jpg" alt="Yoga and wellness practitioners at Yoga Farm 3217 — room rentals and Reiki with Anna">
+        <div class="offer-overlay"></div>
+        <div class="offer-body">
+          <span class="offer-cat">The Guides</span>
+          <h3 class="offer-title">Our Practitioners</h3>
+          <ul class="offer-list">
+            <li>Anna — Reiki &amp; Energy Healing</li>
+            <li>Room rental practitioners available</li>
+            <li>Specialists in yoga, sound, and somatic work</li>
+          </ul>
+          <a href="offerings.html#enquire" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testi" id="testimonials">
+  <div class="testi-bg"></div>
+  <div class="testi-inner">
+    <div class="testi-head">
+      <div class="sec-label rev">Stories from the Farm</div>
+      <h2 class="sec-title rev d1">What <em>People Say</em></h2>
+    </div>
+    <div class="testi-grid rev">
+      <div class="testi-card">
+        <div class="testi-stars-row">★★★★★</div>
+        <p class="testi-q">"Coming to Yoga Farm was the most powerful thing I've done for myself in years. The land holds you. I arrived anxious and overworked. I left feeling like myself again — like I'd remembered something essential."</p>
+        <div class="testi-name">Kate Sanderson</div>
+        <div class="testi-loc">— Google review</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars-row">★★★★★</div>
+        <p class="testi-q">"The equine therapy session changed something in me that years of talk therapy couldn't touch. There's a wisdom in those horses — and in this place — that I'll carry with me forever."</p>
+        <div class="testi-name">Daniel Hughes</div>
+        <div class="testi-loc">— Google review</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars-row">★★★★★</div>
+        <p class="testi-q">"I've practised yoga for fifteen years in studios across three countries. Yoga Farm is different. The morning Yin class with the mist still on the paddocks — I've never felt so present."</p>
+        <div class="testi-name">Nadia Petrov</div>
+        <div class="testi-loc">— Google review</div>
+      </div>
+    </div>
+    <div class="testi-footer rev">
+      <a href="#" class="testi-all-link">Read all reviews
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter" id="newsletter">
+  <div class="newsletter-inner">
+    <div class="sec-label rev" style="color:var(--sage-dark);">Stay in the Loop</div>
+    <h2 class="sec-title rev d1" style="color:var(--earth);font-size:clamp(1.8rem,3vw,2.4rem);">Stay <em>Connected</em></h2>
+    <p class="rev d2" style="font-size:1rem;color:var(--earth-mid);margin-bottom:32px;line-height:1.7;">Seasonal updates, retreat dates, and gentle reminders to come back to yourself.</p>
+    <form id="newsletter-form" class="newsletter-form rev d3" onsubmit="submitNewsletter(event)">
+      <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit" class="newsletter-btn">Sign Up</button>
+    </form>
+    <div class="newsletter-msg" id="newsletter-msg"></div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="con-inner">
+    <div class="con-info">
+      <div class="sec-label rev">Get in Touch</div>
+      <h2 class="sec-title rev d1">Come & <em>Stay Awhile</em></h2>
+      <p class="con-desc rev d2">We'd love to welcome you to the farm. Whether you're booking a class, enquiring about a retreat, or simply wanting to know more — we're here.</p>
+      <div class="con-details">
+        <div class="con-detail rev d2">
+          <div class="con-icon">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 1C5.46 1 3 3.46 3 6.5c0 4.5 5.5 9.5 5.5 9.5S14 11 14 6.5C14 3.46 11.54 1 8.5 1zm0 7.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="currentColor"/></svg>
+          </div>
+          <div>
+            <div class="con-lbl">Location</div>
+            <div class="con-val">Mt Duneed, VIC 3217</div>
+          </div>
+        </div>
+        <div class="con-detail rev d3">
+          <div class="con-icon">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="2" y="4" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M2 6.5l6.5 3.5L15 6.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="con-lbl">Email</div>
+            <div class="con-val">yogafarm3217@gmail.com</div>
+          </div>
+        </div>
+        <div class="con-detail rev d4">
+          <div class="con-icon">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M2 4.5A1.5 1.5 0 0 1 3.5 3H5.25a1 1 0 0 1 .95.68l.72 2.16a1 1 0 0 1-.25 1.02L5.5 8.04A9.5 9.5 0 0 0 8.96 11.5l1.18-1.17a1 1 0 0 1 1.02-.25l2.16.72a1 1 0 0 1 .68.95V13.5A1.5 1.5 0 0 1 12.5 15C6.7 15 2 10.3 2 4.5z" fill="currentColor" opacity=".85"/></svg>
+          </div>
+          <div>
+            <div class="con-lbl">Phone</div>
+            <div class="con-val">(03) 5368 2217</div>
+          </div>
+        </div>
+        <div class="con-detail rev d5">
+          <div class="con-icon">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M8.5 5v3.5L10.5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="con-lbl">Studio Hours</div>
+            <div class="con-val">Mon–Fri: 6:00 AM – 7:00 PM<br>Sat–Sun: 7:00 AM – 5:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="con-form rev d2">
+      <form id="enquiryForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="fg">
+            <label class="flabel">First Name</label>
+            <input type="text" class="finput" placeholder="Your first name" required>
+          </div>
+          <div class="fg">
+            <label class="flabel">Last Name</label>
+            <input type="text" class="finput" placeholder="Your last name" required>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="flabel">Email</label>
+          <input type="email" class="finput" placeholder="your@email.com" required>
+        </div>
+        <div class="fg">
+          <label class="flabel">I'm interested in</label>
+          <select class="fselect">
+            <option value="">Select an offering…</option>
+            <option>Equine Assisted Therapy</option>
+            <option>Reiki with the Herd</option>
+            <option>Private EA Therapy + Yin with Reiki</option>
+            <option>Yin Yoga &amp; Meditation</option>
+            <option>Fire Horse Sessions</option>
+            <option>Seasonal Healing Sounds with Yin</option>
+            <option>Monthly Equine Meditation</option>
+            <option>October Retreat</option>
+            <option>March Retreat</option>
+            <option>Corporate Retreats</option>
+            <option>Room Rental / Practitioners</option>
+            <option>Reiki with Anna</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="flabel">Message</label>
+          <textarea class="ftextarea" placeholder="Tell us a little about yourself and what brings you here…"></textarea>
+        </div>
+        <button type="submit" class="fsub" id="fsub">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="foot-inner">
+    <div class="foot-2col">
+
+      <!-- Left: brand + info -->
+      <div class="foot-left">
+        <div class="foot-brand">
+          <img src=".claude/brand_assets/Yoga Farm Logo (002).jpeg" alt="Yoga Farm 3217">
+          <div>
+            <div class="foot-brand-text">Yoga Farm 3217</div>
+            <div class="foot-brand-sub">Surf Coast, Victoria</div>
+          </div>
+        </div>
+        <address class="foot-addr">
+          Mt Duneed, VIC 3217<br>
+          <a href="mailto:yogafarm3217@gmail.com">yogafarm3217@gmail.com</a>
+        </address>
+        <div class="foot-social">
+          <a href="#" class="foot-soc" aria-label="Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="foot-soc" aria-label="Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: nav links -->
+      <div class="foot-right">
+        <div class="foot-col-title">Navigate</div>
+        <ul class="foot-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#healing">Healing with Horses</a></li>
+          <li><a href="#yoga">Yoga &amp; Events</a></li>
+          <li><a href="#retreats">Retreats</a></li>
+          <li><a href="#practitioners">Our Practitioners</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="foot-btm">
+      <span class="foot-copy">© 2025 Yoga Farm 3217. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Parallax hero
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => {
+  heroBg.style.transform = `scale(1.12) translateY(${window.scrollY * 0.32}px)`;
+}, { passive: true });
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+
+// Newsletter
+function submitNewsletter(e) {
+  e.preventDefault();
+  const msg = document.getElementById('newsletter-msg');
+  msg.textContent = "Thanks! We'll be in touch.";
+  e.target.reset();
+}
+
+// Mobile nav
+const mobNav = document.getElementById('mobNav');
+document.getElementById('hamburger').addEventListener('click', () => { mobNav.classList.add('open'); document.body.style.overflow = 'hidden'; });
+document.getElementById('mobClose').addEventListener('click', closeMob);
+function closeMob() { mobNav.classList.remove('open'); document.body.style.overflow = ''; }
+
+// Form — open email client via mailto
+function submitForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const first = form.querySelector('input[placeholder*="first"]').value;
+  const last = form.querySelector('input[placeholder*="last"]').value;
+  const email = form.querySelector('input[type="email"]').value;
+  const interest = form.querySelector('select').value || 'General Enquiry';
+  const msg = form.querySelector('textarea').value;
+  const subject = encodeURIComponent('Website Enquiry: General');
+  const body = encodeURIComponent(`Name: ${first} ${last}\nEmail: ${email}\nInterest: ${interest}\n\n${msg}`);
+  window.location.href = `mailto:yogafarm3217@gmail.com?subject=${subject}&body=${body}`;
+  const btn = document.getElementById('fsub');
+  btn.textContent = 'Opening Email… ✓'; btn.style.background = '#3A7A3C'; btn.disabled = true;
+  setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; btn.disabled = false; }, 3000);
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
