@@ -271,6 +271,11 @@
     .offer-list .offer-link { color: var(--gold-light); font-size: 0.82rem; margin-top: 4px; }
     .offer-link a { color: inherit; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
     .offer-link a:hover { color: var(--cream); }
+    .offer-btns { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .btn-explore { font-size: 0.82rem; color: rgba(244,237,224,0.55); letter-spacing: 0.05em; transition: color 0.25s; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-explore:hover { color: rgba(244,237,224,0.9); }
+    .btn-explore svg { transition: transform 0.25s; }
+    .btn-explore:hover svg { transform: translateX(3px); }
 
     /* ── TESTIMONIALS ── */
     .testi { padding: 120px 0; background: var(--earth); overflow: hidden; position: relative; }
@@ -472,10 +477,10 @@
 <div class="mob-nav" id="mobNav">
   <button class="mob-close" id="mobClose">✕</button>
   <a href="#about" onclick="closeMob()">About</a>
-  <a href="#healing" onclick="closeMob()">Healing with Horses</a>
-  <a href="#yoga" onclick="closeMob()">Yoga &amp; Events</a>
-  <a href="#retreats" onclick="closeMob()">Retreats</a>
-  <a href="#practitioners" onclick="closeMob()">Our Practitioners</a>
+  <a href="healing-with-horses.html" onclick="closeMob()">Healing with Horses</a>
+  <a href="yoga-events.html" onclick="closeMob()">Yoga &amp; Events</a>
+  <a href="retreats.html" onclick="closeMob()">Retreats</a>
+  <a href="practitioners.html" onclick="closeMob()">Our Practitioners</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
 </div>
 
@@ -486,17 +491,17 @@
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#healing">Healing with Horses</a></li>
-    <li><a href="#yoga">Yoga &amp; Events</a></li>
+    <li><a href="healing-with-horses.html">Healing with Horses</a></li>
+    <li><a href="yoga-events.html">Yoga &amp; Events</a></li>
     <li class="nav-drop">
-      <a href="#retreats">Retreats</a>
+      <a href="retreats.html">Retreats</a>
       <div class="drop-menu">
         <a href="retreat-october.html">October Retreat</a>
         <a href="retreat-march.html">March Retreat</a>
         <a href="corporate-retreats.html">Corporate Retreats</a>
       </div>
     </li>
-    <li><a href="#practitioners">Our Practitioners</a></li>
+    <li><a href="practitioners.html">Our Practitioners</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -593,7 +598,10 @@
             <li>Reiki with the Herd</li>
             <li>Private Equine Assisted Therapy + Yin with Reiki</li>
           </ul>
-          <a href="offerings.html#enquire" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
+          <div class="offer-btns">
+            <a href="offerings.html#enquire" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
+            <a href="healing-with-horses.html" class="btn-explore">Explore <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
         </div>
       </div>
 
@@ -611,7 +619,10 @@
             <li>Summer Solstice Fire Horse Session</li>
             <li>Monthly Equine Meditation</li>
           </ul>
-          <a href="offerings.html#book" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Book</a>
+          <div class="offer-btns">
+            <a href="offerings.html#book" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Book</a>
+            <a href="yoga-events.html" class="btn-explore">Explore <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
         </div>
       </div>
 
@@ -627,7 +638,10 @@
             <li>March Retreat</li>
             <li class="offer-link"><a href="corporate-retreats.html">Also available: Corporate Retreats →</a></li>
           </ul>
-          <a href="offerings.html#book" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Book</a>
+          <div class="offer-btns">
+            <a href="offerings.html#book" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Book</a>
+            <a href="retreats.html" class="btn-explore">Explore <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
         </div>
       </div>
 
@@ -643,7 +657,10 @@
             <li>Room rental practitioners available</li>
             <li>Specialists in yoga, sound, and somatic work</li>
           </ul>
-          <a href="offerings.html#enquire" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
+          <div class="offer-btns">
+            <a href="offerings.html#enquire" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
+            <a href="practitioners.html" class="btn-explore">Explore <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
         </div>
       </div>
 
@@ -826,10 +843,10 @@
         <div class="foot-col-title">Navigate</div>
         <ul class="foot-links">
           <li><a href="#about">About</a></li>
-          <li><a href="#healing">Healing with Horses</a></li>
-          <li><a href="#yoga">Yoga &amp; Events</a></li>
-          <li><a href="#retreats">Retreats</a></li>
-          <li><a href="#practitioners">Our Practitioners</a></li>
+          <li><a href="healing-with-horses.html">Healing with Horses</a></li>
+          <li><a href="yoga-events.html">Yoga &amp; Events</a></li>
+          <li><a href="retreats.html">Retreats</a></li>
+          <li><a href="practitioners.html">Our Practitioners</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#">Reviews</a></li>
           <li><a href="#">Privacy Policy</a></li>
