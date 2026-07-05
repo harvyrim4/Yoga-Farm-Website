@@ -4,15 +4,14 @@
 .claude/skills/
 *.jsonl
 
-# Video files — large files excluded until ready to push
-# landscapevid.MOV (177 MB) excluded until converted to .mp4
+# Videos in root brand_assets/ are tracked (damhorsevid.mp4, landscapevid.mp4)
+# .mov/.MOV excluded — originals kept locally but not needed on GitHub
 brand_assets/*.mov
 brand_assets/*.MOV
 brand_assets/*.avi
 brand_assets/*.webm
-.claude/brand_assets/*.mp4
-.claude/brand_assets/*.mov
-.claude/brand_assets/*.MOV
+# .claude/brand_assets/ is a defunct duplicate — exclude everything in it
+.claude/brand_assets/
 
 # Dev-only screenshot folder
 temporary screenshots/
