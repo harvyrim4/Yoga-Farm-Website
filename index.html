@@ -143,6 +143,7 @@
     .hero-content {
       position: relative; z-index: 1;
       text-align: center; padding: 0 32px; max-width: 1300px;
+      margin-top: 60px;
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 14px;
@@ -167,7 +168,7 @@
     .hero-h1 em { font-style: normal; font-weight: 300; color: var(--gold-light); }
     .hero-sub {
       font-size: 1.0rem; font-weight: 300;
-      color: rgba(244,237,224,0.72); max-width: 520px;
+      color: rgba(244,237,224,0.72); max-width: none; white-space: nowrap;
       margin: 0 auto 26px; line-height: 1.8;
       opacity: 0; transform: translateY(18px);
       animation: up 1s cubic-bezier(.16,1,.3,1) .75s forwards;
@@ -264,7 +265,7 @@
     }
     .offer-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 36px 32px; }
     .offer-cat { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
-    .offer-title { font-family: var(--ff-display); font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 700; color: var(--cream); margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.15; }
+    .offer-title { font-family: var(--ff-display); font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 500; color: var(--cream); margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.15; }
     .offer-list { list-style: none; margin-bottom: 24px; display: flex; flex-direction: column; gap: 5px; }
     .offer-list li { font-size: 0.84rem; color: rgba(244,237,224,0.7); display: flex; align-items: center; gap: 8px; line-height: 1.4; }
     .offer-list li::before { content: ''; display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--sage-light); flex-shrink: 0; }
@@ -443,6 +444,7 @@
       .con-inner{gap:56px;}
     }
     @media(max-width:768px){
+      .hero-sub{white-space:normal;max-width:480px;}
       .nav{padding:20px 24px;}
       .nav.scrolled{padding:14px 24px;}
       .nav-links{display:none;}
@@ -518,9 +520,9 @@
   </div>
 
   <div class="hero-content">
-    <div style="opacity:0;animation:up 0.9s cubic-bezier(.16,1,.3,1) 0s forwards;margin-bottom:10px;">
+    <div style="opacity:0;animation:up 0.9s cubic-bezier(.16,1,.3,1) 0s forwards;margin-bottom:4px;">
       <img src="./brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217"
-        style="width:420px;height:420px;object-fit:contain;margin:0 auto;opacity:0.55;filter:drop-shadow(0 3px 18px rgba(30,23,16,0.35));">
+        style="width:260px;height:260px;object-fit:contain;margin:0 auto;opacity:0.55;filter:drop-shadow(0 3px 18px rgba(30,23,16,0.35));">
     </div>
     <div class="hero-eyebrow">Surfcoast, Victoria, Australia</div>
     <h1 class="hero-h1">Land.&nbsp; Breathe.&nbsp; Belong.</h1>
@@ -538,7 +540,6 @@
   </div>
 
   <div class="scroll-cue">
-    <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -551,16 +552,10 @@
         <source src="./brand_assets/damhorsevid.mp4" type="video/mp4">
       </video>
       <img src="https://placehold.co/280x280/4A7A4C/C8E0CA?text=" alt="Yoga class" class="about-accent">
-      <div class="about-badge">
-        <span class="bn">Est.</span>
-        <span class="bl">2012</span>
-      </div>
     </div>
     <div class="about-text">
-      <div class="sec-label rev">Our Story</div>
-      <h2 class="sec-title rev d1">A Place to <em>Arrive</em></h2>
-      <p class="about-body rev d2">Yoga Farm is 32 acres where you can actually slow down â€” not just talk about it. Most people say they feel it as soon as they arrive, before a class has even started or a horse has come over to say hello. We've brought together yoga, equine therapy, retreats, and a small community of practitioners, because healing rarely looks like just one thing.</p>
-      <p class="about-body rev d3" style="margin-top:0">Some people come for an hour, some for a weekend, some keep coming back for years. However you find your way here, you're welcome exactly as you are.</p>
+      <h2 class=”sec-title rev d1”>Welcome to <em>Yoga Farm</em></h2>
+      <p class=”about-body rev d2”>Yoga Farm is 32 acres where you can actually slow down — not just talk about it. Most people say they feel it as soon as they arrive, before a class has even started or a horse has come over to say hello. We've brought together yoga, equine therapy, retreats, and a small community of practitioners, because healing rarely looks like just one thing. Some people come for an hour, some for a weekend, some keep coming back for years. However you find your way here, you're welcome exactly as you are.</p>
       <div class="about-feats rev d4">
         <div class="feat"><div class="feat-dot"></div><span>Open-air yoga pavilion</span></div>
         <div class="feat"><div class="feat-dot"></div><span>Meditation gardens</span></div>
@@ -581,8 +576,7 @@
 <section class="offerings" id="offerings">
   <div class="off-inner">
     <div class="off-head rev">
-      <div class="sec-label">What We Offer</div>
-      <h2 class="sec-title">Ways to <em>Heal &amp; Practise</em></h2>
+      <h2 class="sec-title">How can we <em>support you today?</em></h2>
     </div>
     <div class="offer-grid">
 
@@ -591,7 +585,6 @@
         <img src="./brand_assets/healinghorsesplacecard.jpg" alt="Equine assisted therapy and healing with horses at Yoga Farm 3217, Surf Coast Victoria">
         <div class="offer-overlay"></div>
         <div class="offer-body">
-          <span class="offer-cat">Somatic Healing</span>
           <h3 class="offer-title">Healing with Horses</h3>
           <ul class="offer-list">
             <li>Equine Assisted Therapy</li>
@@ -610,7 +603,6 @@
         <img src="./brand_assets/yoga room.png" alt="Yoga room at Yoga Farm 3217 â€” Yin yoga, meditation and fire horse sessions near Geelong">
         <div class="offer-overlay"></div>
         <div class="offer-body">
-          <span class="offer-cat">Movement &amp; Stillness</span>
           <h3 class="offer-title">Yoga &amp; Events</h3>
           <ul class="offer-list">
             <li>Yin Yoga &amp; Meditation</li>
@@ -631,7 +623,6 @@
         <img src="./brand_assets/retreatplacecard.jpg" alt="Yoga and wellness retreats Victoria â€” October and March retreats at Yoga Farm 3217">
         <div class="offer-overlay"></div>
         <div class="offer-body">
-          <span class="offer-cat">Immersive Stays</span>
           <h3 class="offer-title">Retreats</h3>
           <ul class="offer-list">
             <li>October Retreat</li>
@@ -650,7 +641,6 @@
         <img src="./brand_assets/ourpractitionersplacecard.jpg" alt="Yoga and wellness practitioners at Yoga Farm 3217 â€” room rentals and Reiki with Anna">
         <div class="offer-overlay"></div>
         <div class="offer-body">
-          <span class="offer-cat">The Guides</span>
           <h3 class="offer-title">Our Practitioners</h3>
           <ul class="offer-list">
             <li>Anna â€” Reiki &amp; Energy Healing</li>

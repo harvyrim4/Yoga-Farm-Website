@@ -1,4 +1,13 @@
-# CLAUDE.md — Frontend Website Rules
+# CLAUDE.md — Yoga Farm Website
+
+@STATUS.md
+
+## Project Overview
+Yoga Farm is Anna Rimmer's wellbeing business on a 32-acre property in Mount Duneed, Victoria, Australia (yogafarm.com.au). Anna is the owner and sole teacher. The business offers yin yoga classes, equine-assisted therapy, retreats, workshops, and practitioner room rentals.
+
+**Important constraint:** the property's farm zoning prohibits membership models. All class revenue comes from casual drop-in bookings. This is why the site only ever uses two CTAs (Book / Enquire) — never anything membership- or subscription-shaped.
+
+This file holds locked-in rules only. For current build progress, open items, and anything still in flux, see STATUS.md — don't add status notes here.
 
 ## Always Do First
 - **Invoke the `frontend-design` skill** before writing any frontend code, every session, no exceptions.
@@ -57,11 +66,11 @@
 
 ---
 
-# Yoga Farm — Project Rules
+# Yoga Farm — Brand & Content Rules
 
 ## Branding
 - Font: Quicksand, for both headings and body text
-- Primary accent colour: the green from the Yoga Farm logo — check `brand_assets/` for the exact file/hex; do not invent a green
+- Primary accent colour: the green from the Yoga Farm logo — check `brand_assets/` for the exact file/hex; do not invent a green (unconfirmed — see STATUS.md)
 - Logo: check `brand_assets/`
 - Homepage hero tagline, directly under the logo: "Land. Breathe. Belong." — use letter-spacing between the three words
 
@@ -165,10 +174,3 @@ Single flat list of all 11 offerings, each with name + CTA button. No separate p
 
 ## Legal
 - Link to the owner's existing privacy policy from the footer (placeholder link until copy is supplied)
-
-## Open items — flag to the user if any block progress
-- Exact logo hex code (check `brand_assets/` first)
-- Final photo/video selects (check `brand_assets/` first)
-- Booking software decision (currently Setmore, under review)
-- Mailchimp integration details
-- Final "About" and offering copy (use placeholder text matching the tone until supplied)
