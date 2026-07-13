@@ -9,6 +9,8 @@ Yoga Farm is Anna Rimmer's wellbeing business on a 32-acre property in Mount Dun
 
 This file holds locked-in rules only. For current build progress, open items, and anything still in flux, see STATUS.md — don't add status notes here.
 
+**This project intentionally uses two files: CLAUDE.md for stable rules, STATUS.md for living status. Do not consolidate these into one file, including via any CLAUDE.md-management tooling or skill.**
+
 ## Always Do First
 - **Invoke the `frontend-design` skill** before writing any frontend code, every session, no exceptions.
 
@@ -32,6 +34,7 @@ This file holds locked-in rules only. For current build progress, open items, an
 - After screenshotting, read the PNG from `temporary screenshots/` with the Read tool — Claude can see and analyze the image directly.
 - When comparing, be specific: "heading is 32px but reference shows ~24px", "card gap is 16px but should be 24px"
 - Check: spacing/padding, font size/weight/line-height, colors (exact hex), alignment, border-radius, shadows, image sizing
+- **Use this `screenshot.mjs` / Puppeteer workflow for all visual QA on this project. Do not substitute the Playwright skill for this** — it's reserved for other testing needs, not the reference-image comparison loop.
 
 ## Output Defaults
 - Single `index.html` file, all styles inline, unless user says otherwise
@@ -61,6 +64,7 @@ This file holds locked-in rules only. For current build progress, open items, an
 - Do not stop after one screenshot pass
 - Do not use `transition-all`
 - Do not use default Tailwind blue/indigo as primary color
+- No scroll-triggered animation, parallax, or crossfading sections anywhere on the Yoga Farm site
 - No carousels or sliders anywhere on the Yoga Farm site — everything sits static on the page
 
 ---
@@ -92,19 +96,17 @@ Six items only, in this order:
 - Logo + tagline ("Land. Breathe. Belong.")
 - Two buttons side by side: **Book** (solid/filled) and **Enquire** (outline)
 
-**2. "Welcome to Yoga Farm" section**
-- Heading: "Welcome to Yoga Farm"
-- Body copy (final, do not change): "Yoga Farm is 32 acres where you can actually slow down — not just talk about it. Most people say they feel it as soon as they arrive, before a class has even started or a horse has come over to say hello. We've brought together yoga, equine therapy, retreats, and a small community of practitioners, because healing rarely looks like just one thing. Some people come for an hour, some for a weekend, some keep coming back for years. However you find your way here, you're welcome exactly as you are."
-- Layout: video (`damhorsevid.mp4`) on the left, heading + body + feature list on the right, two-column on desktop, stacked on mobile
+**2. Intro paragraph**
+- 2–3 sentences under the hero. Use placeholder copy until real copy is supplied — do not invent final marketing copy.
 
 **3. Four offering cards** — grid, 2×2 on desktop, stacked on mobile. Each card: one photo from `brand_assets/`, 2–3 sentence description, one CTA button.
 
 | Card | Offerings inside | CTA button |
 |---|---|---|
-| Healing with Horses | Equine Assisted Therapy with Anna, Equine Assisted Energy Healing with Anna & Steph, Equine Assisted Reiki with Anna | Enquire |
-| Yoga & Events | Sacred Soil. Sacred Soul. – 2 night women's glamping retreat (listed first), Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin, Monthly Equine Meditation | Book |
-| Retreats | October 2026 Retreat, March 2027 Retreat. Small text link: "Corporate and Private Retreats also available" | Book |
-| Our Practitioners | Single sentence: "A range of holistic healing modalities are on offer at Yoga Farm." | Enquire |
+| Healing with Horses | Equine Assisted Therapy, Reiki with the Herd, Private Equine Assisted Therapy + Yin with Reiki | Enquire |
+| Yoga & Events | Yin Yoga & Meditation, Fire Horse Sessions, Seasonal Healing Sounds with Yin, Summer Solstice Fire Horse Session, Monthly Equine Meditation | Book |
+| Retreats | October Retreat, March Retreat (deposit secures spot, balance invoiced manually). Include small text link: "Also available: corporate retreats →" | Book |
+| Our Practitioners | Simple bonus listing of room-rental practitioners — name, specialty, one line each — plus Reiki with Anna | Enquire |
 
 **4. Testimonials strip**
 - 3–4 hard-coded 5-star review cards (not a live widget) — star rating + "— Google review" attribution
@@ -114,34 +116,27 @@ Six items only, in this order:
 **5. Newsletter signup**
 - Email field + "Sign up" button. Mailchimp integration TBD — build the form so it's easy to wire up later.
 
-**6. Contact form**
-- Full enquiry form: first name, last name, email, interest dropdown, message textarea
-- Contact details panel alongside: location, email, phone, studio hours
-- Submits via mailto to yogafarm3217@gmail.com with subject "Website Enquiry: General"
-
-**7. Footer**
+**6. Footer**
 - Address, contact email (yogafarm3217@gmail.com), social links, "Reviews" link
 
 ## /offerings page
-Single flat list of all offerings, each with name + CTA button. No separate photo required per row.
+Single flat list of all 11 offerings, each with name + CTA button. No separate photo required per row.
 
 | Offering | CTA |
 |---|---|
-| Equine Assisted Therapy with Anna | Enquire |
-| Equine Assisted Energy Healing with Anna & Steph | Enquire |
-| Equine Assisted Reiki with Anna | Enquire |
-| Sacred Soil. Sacred Soul. – 2 night women's glamping retreat | Book |
+| Equine Assisted Therapy | Enquire |
+| Reiki with the Herd | Enquire |
+| Private Equine Assisted Therapy + Yin with Reiki | Enquire |
 | Yin Yoga & Meditation | Book |
-| Monthly Fire Horse Sessions | Book |
+| Fire Horse Sessions | Book |
 | Seasonal Healing Sounds with Yin | Book |
+| Summer Solstice Fire Horse Session | Book |
 | Monthly Equine Meditation | Book |
-| October 2026 Retreat | Book |
-| March 2027 Retreat | Book |
+| October Retreat | Book |
+| March Retreat | Book |
 | Corporate Retreats | Enquire |
-| Private Retreats | Enquire |
 | Our Practitioners (room rentals) | Enquire |
-
-Note: offerings.html has not yet been updated to match these names — needs a pass to sync.
+| Reiki with Anna | Enquire |
 
 - Homepage hero's "Book" button links to this page filtered/scrolled to Book items
 - Homepage hero's "Enquire" button links to this page filtered/scrolled to Enquire items

@@ -292,7 +292,7 @@
       </div>
     </div>
     <div class="foot-btm">
-      <span class="foot-copy">&copy; 2025 Yoga Farm 3217. All rights reserved.</span>
+      <span class="foot-copy">&copy; <span id="copy-year">2026</span> Yoga Farm 3217. All rights reserved.</span>
     </div>
   </div>
 </footer>
@@ -309,5 +309,7 @@ document.getElementById('hamburger').addEventListener('click', () => { mobNav.cl
 document.getElementById('mobClose').addEventListener('click', closeMob);
 function closeMob() { mobNav.classList.remove('open'); document.body.style.overflow = ''; }
 </script>
+
+<script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

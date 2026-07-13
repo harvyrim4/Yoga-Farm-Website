@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>October Retreat â€” Yoga Farm 3217 Â· Surf Coast Victoria</title>
-  <meta name="description" content="October yoga and wellness retreat at Yoga Farm 3217, Mt Duneed â€” Yin yoga, equine therapy, meditation and sound healing on Victoria's Surf Coast near Geelong.">
+  <title>October Retreat &mdash; Yoga Farm 3217 &middot; Surf Coast Victoria</title>
+  <meta name="description" content="October yoga and wellness retreat at Yoga Farm 3217, Mt Duneed &mdash; Yin yoga, equine therapy, meditation and sound healing on Victoria's Surf Coast near Geelong.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -123,7 +123,7 @@
 
 <!-- Mobile Nav -->
 <div class="mob-nav" id="mobNav">
-  <button class="mob-close" id="mobClose">âœ•</button>
+  <button class="mob-close" id="mobClose">&#x2715;</button>
   <a href="index.html#about">About</a>
   <a href="index.html#healing">Healing with Horses</a>
   <a href="index.html#yoga">Yoga &amp; Events</a>
@@ -162,14 +162,14 @@
   <img src="https://placehold.co/1440x900/1A2E1A/4A7A4C" alt="October retreat at Yoga Farm 3217, Surf Coast Victoria" class="page-hero-img">
   <div class="page-hero-content">
     <div class="sec-label">Retreats</div>
-    <div class="dates">October 2025 â€” Dates TBC</div>
+    <div class="dates">October 2025 &mdash; Dates TBC</div>
     <h1>October <em>Retreat</em></h1>
   </div>
 </section>
 
 <!-- Content -->
 <div class="retreat-content">
-  <p class="rev">Join us for a few days of deep rest and renewal on the farm â€” away from screens, schedules, and noise. The October Retreat gathers a small group of people ready to slow down together, reconnect with the body, and let the land do its quiet work.</p>
+  <p class="rev">Join us for a few days of deep rest and renewal on the farm &mdash; away from screens, schedules, and noise. The October Retreat gathers a small group of people ready to slow down together, reconnect with the body, and let the land do its quiet work.</p>
   <p class="rev d1">We move through mornings with Yin Yoga and meditation, afternoons with equine sessions and sound healing, and evenings gathered around long tables with nourishing food. Nothing is rushed. Everything is intentional.</p>
 
   <h2 class="rev">What's <em>Included</em></h2>
@@ -230,7 +230,7 @@
       </div>
     </div>
     <div class="foot-btm">
-      <span class="foot-copy">Â© 2025 Yoga Farm 3217. All rights reserved.</span>
+      <span class="foot-copy">&copy; <span id="copy-year">2026</span> Yoga Farm 3217. All rights reserved.</span>
     </div>
   </div>
 </footer>
@@ -247,5 +247,7 @@ const mobClose = document.getElementById('mobClose');
 hamburger.addEventListener('click', () => mobNav.classList.add('open'));
 mobClose.addEventListener('click', () => mobNav.classList.remove('open'));
 </script>
+
+<script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
