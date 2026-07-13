@@ -104,7 +104,7 @@ Six items only, in this order:
 | Card | Offerings inside | CTA button |
 |---|---|---|
 | Healing with Horses | Equine Assisted Therapy, Reiki with the Herd, Private Equine Assisted Therapy + Yin with Reiki | Enquire |
-| Yoga & Events | Yin Yoga & Meditation, Fire Horse Sessions, Seasonal Healing Sounds with Yin, Summer Solstice Fire Horse Session, Monthly Equine Meditation | Book |
+| Yoga & Events | Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin, Summer Solstice Fire Horse Session, Monthly Equine Meditation | Book |
 | Retreats | October Retreat, March Retreat (deposit secures spot, balance invoiced manually). Include small text link: "Also available: corporate retreats →" | Book |
 | Our Practitioners | Simple bonus listing of room-rental practitioners — name, specialty, one line each — plus Reiki with Anna | Enquire |
 
@@ -128,7 +128,7 @@ Single flat list of all 11 offerings, each with name + CTA button. No separate p
 | Reiki with the Herd | Enquire |
 | Private Equine Assisted Therapy + Yin with Reiki | Enquire |
 | Yin Yoga & Meditation | Book |
-| Fire Horse Sessions | Book |
+| Monthly Fire Horse Sessions | Book |
 | Seasonal Healing Sounds with Yin | Book |
 | Summer Solstice Fire Horse Session | Book |
 | Monthly Equine Meditation | Book |

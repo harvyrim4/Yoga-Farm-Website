@@ -20,7 +20,7 @@ const MIME = {
 };
 
 createServer(async (req, res) => {
-  let path = req.url.split('?')[0];
+  let path = decodeURIComponent(req.url.split('?')[0]);
   if (path === '/') path = '/index.html';
   const file = join(__dirname, path);
   const mime = MIME[extname(file)] || 'text/plain';
