@@ -4,7 +4,7 @@ Update this file after every work session or big iteration. Do NOT edit CLAUDE.m
 
 Keep this file short. It's a snapshot of "where things stand," not a history of how they got there — long narrative/decision-log content should live in your own separate notes, not here.
 
-**Last updated:** 2026-07-13
+**Last updated:** 2026-07-23
 
 ## Target launch
 August 1, 2026
@@ -21,13 +21,16 @@ August 1, 2026
 - [x] Our Practitioners page — rebuilt with real directory of 7 named practitioners
 
 ## Open items / blockers
-- Confirm logo green hex — currently using #509652, unverified against physical logo
-- Booking platform decision — Setmore still in place, under review
-- Finalize Book CTA flow isolation so it can be swapped to a new platform without a rebuild
+- Logo green hex locked as **#57835E** (confirmed by Anna 2026-07-23) — updated across all 9 pages
+- Booking platform decision — Setmore URL needed for Book button on hero; Book buttons currently link to offerings.html#book
+- Enquire button strategy: all Enquire buttons on homepage now link to `#contact` form; other pages use `mailto:` with subject lines — need to confirm Anna's preferred pattern site-wide
+- Which placecard "Explore" pages does Anna think are missing? (all 4 cards already link to existing pages)
+- Colour scheme: Anna flagged this needs a decision — awaiting her input
 - Mailchimp integration details
 - Testimonials "Read all reviews" link is a dead `#` placeholder — no testimonials page exists
 - Footer social links and Privacy Policy link are dead `#` placeholders on all pages
 - About page: standalone `about.html` not yet built
+- Video autoplay: needs testing on Anna's device after serve.mjs fix
 
 ## Recently locked in
 (Already reflected in CLAUDE.md)
@@ -54,3 +57,4 @@ Short, dated one-liners only — a sentence or two per entry, not paragraphs.
 - 2026-07-13: Practitioners page rebuilt from scratch as a proper 7-person directory with direct contact details.
 - 2026-07-13: Mojibake fixed site-wide; copyright year now auto-updates; scroll animations confirmed intentional.
 - 2026-07-13: Sacred Soil. Sacred Soul. added everywhere; Monthly Fire Horse Sessions canonicalised; Anna's phone display fixed.
+- 2026-07-23: Logo green confirmed as #57835E; all 9 pages updated. Headings site-wide set to YF green, font-weight 600, not italic. Nav logo → white on dark pill. Homepage dot-point features removed. Footer logo → white PNG no circle. Contact form: phone field added, "Get in Touch" label removed, Enquire buttons link to #contact. Btn hover colours updated.

@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sage: #509652; --sage-light: #A8CCA9; --sage-pale: #E6F0E6; --sage-dark: #3A7A3C;
-      --terra: #3C7A3E; --cream: #F4EDE0; --cream-warm: #EDE1CC;
+      --sage: #57835E; --sage-light: #91B496; --sage-pale: #E2EDE4; --sage-dark: #3E6044;
+      --terra: #456648; --cream: #F4EDE0; --cream-warm: #EDE1CC;
       --earth: #1E1710; --earth-mid: #5C4A38; --gold: #C9A96E; --gold-light: #E3C99A;
       --ff: 'Quicksand', system-ui, sans-serif;
     }
@@ -57,15 +57,16 @@
     .mob-close:hover { opacity: 1; }
 
     .btn-fill { display: inline-flex; align-items: center; gap: 9px; padding: 15px 34px; background: var(--terra); color: var(--cream); border-radius: 999px; font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500; transition: background 0.3s, transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 24px rgba(60,122,62,0.34); }
-    .btn-fill:hover { background: #2d5e2f; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.44); }
+    .btn-fill:hover { background: #345A3A; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.44); }
     .btn-fill:active { transform: translateY(0); }
     .btn-outline { display: inline-flex; align-items: center; gap: 9px; padding: 14px 28px; border: 1.5px solid rgba(92,74,56,0.3); color: var(--earth-mid); border-radius: 999px; font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500; transition: border-color 0.3s, color 0.3s, transform 0.2s; }
     .btn-outline:hover { border-color: var(--terra); color: var(--terra); transform: translateY(-2px); }
     .btn-outline:active { transform: translateY(0); }
     .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 16px; }
     .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
-    .sec-title { font-family: var(--ff); font-size: clamp(2.1rem,3.8vw,3.4rem); font-weight: 700; line-height: 1.14; letter-spacing: -0.02em; }
-    .sec-title em { font-style: normal; font-weight: 300; color: var(--sage-dark); }
+    .sec-title { font-family: var(--ff); font-size: clamp(2.1rem,3.8vw,3.4rem); font-weight: 600; line-height: 1.14; letter-spacing: -0.02em; color: var(--sage); }
+    .sec-title em { font-style: normal; font-weight: 300; color: inherit; }
+    h1, h2, h3, h4, h5, h6 { font-style: normal; }
 
     /* PAGE HERO */
     .page-hero { position: relative; height: 72vh; min-height: 540px; display: flex; align-items: flex-end; overflow: hidden; }
