@@ -10,9 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sage: #57835E; --sage-light: #91B496; --sage-pale: #E2EDE4; --sage-dark: #3E6044;
-      --terra: #456648; --cream: #F4EDE0; --cream-warm: #EDE1CC;
-      --earth: #1E1710; --earth-mid: #5C4A38; --gold: #C9A96E; --gold-light: #E3C99A;
+      /* Monochrome Green palette — see Yoga-Farm-Style-Guide-Monochrome-Green.md */
+      --yf-green-100: #EAF0E6; --yf-green-300: #A9C0A6; --yf-green-500: #57835E;
+      --yf-green-700: #3C5B42; --yf-green-900: #23361F; --yf-cream: #F6F1E7;
+      --sage: var(--yf-green-500); --sage-light: var(--yf-green-300); --sage-pale: var(--yf-green-100); --sage-dark: var(--yf-green-700);
+      --terra: var(--yf-green-500); --cream: var(--yf-cream); --cream-warm: var(--yf-green-100);
+      --earth: var(--yf-green-900); --earth-mid: var(--yf-green-700); --gold: var(--yf-green-300); --gold-light: var(--yf-cream);
       --ff: 'Quicksand', system-ui, sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,7 +28,9 @@
 
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 12px 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(15,22,15,0.52); backdrop-filter: blur(6px); transition: background 0.5s, padding 0.4s, box-shadow 0.4s; }
     .nav.scrolled { background: rgba(244,237,224,0.94); backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(92,74,56,0.1), 0 8px 32px rgba(30,23,16,0.06); }
-    .nav-logo-img { height: 50px; width: auto; object-fit: contain; transition: opacity 0.4s; }
+    .nav-logo { display: flex; align-items: center; background: rgba(15,22,15,0.42); border-radius: 10px; padding: 5px 10px; backdrop-filter: blur(8px); transition: background 0.5s; }
+    .nav.scrolled .nav-logo { background: rgba(15,22,15,0.38); }
+    .nav-logo-img { height: 44px; width: auto; object-fit: contain; transition: opacity 0.4s; }
     .nav.scrolled .nav-logo-img { opacity: 0.9; }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a { font-size: 0.8rem; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(244,237,224,0.8); transition: color 0.3s; position: relative; }
@@ -57,15 +62,17 @@
     .mob-close:hover { opacity: 1; }
 
     .btn-fill { display: inline-flex; align-items: center; gap: 9px; padding: 15px 34px; background: var(--terra); color: var(--cream); border-radius: 999px; font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500; transition: background 0.3s, transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 24px rgba(60,122,62,0.34); }
-    .btn-fill:hover { background: #345A3A; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.44); }
+    .btn-fill:hover { background: var(--yf-green-700); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.44); }
     .btn-fill:active { transform: translateY(0); }
-    .btn-outline { display: inline-flex; align-items: center; gap: 9px; padding: 14px 28px; border: 1.5px solid rgba(92,74,56,0.3); color: var(--earth-mid); border-radius: 999px; font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500; transition: border-color 0.3s, color 0.3s, transform 0.2s; }
-    .btn-outline:hover { border-color: var(--terra); color: var(--terra); transform: translateY(-2px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 9px; padding: 13px 32px; background: transparent; color: var(--yf-green-700); border: 1.5px solid var(--yf-green-500); border-radius: 999px; font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500; transition: background 0.3s, transform 0.2s; }
+    .btn-outline:hover { background: var(--yf-green-100); transform: translateY(-2px); }
     .btn-outline:active { transform: translateY(0); }
-    .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 16px; }
+    .btn-outline-dark { display: inline-flex; align-items: center; gap: 9px; padding: 13px 32px; background: transparent; color: var(--cream); border: 1.5px solid rgba(244,237,224,0.55); border-radius: 999px; font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500; transition: background 0.3s, border-color 0.3s, transform 0.2s; }
+    .btn-outline-dark:hover { background: rgba(244,237,224,0.12); border-color: rgba(244,237,224,0.85); transform: translateY(-2px); }
+    .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--yf-green-700); margin-bottom: 16px; }
     .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
-    .sec-title { font-family: var(--ff); font-size: clamp(2.1rem,3.8vw,3.4rem); font-weight: 600; line-height: 1.14; letter-spacing: -0.02em; color: var(--sage); }
-    .sec-title em { font-style: normal; font-weight: 300; color: inherit; }
+    .sec-title { font-family: var(--ff); font-size: clamp(2.1rem,3.8vw,3.4rem); font-weight: 700; line-height: 1.14; letter-spacing: -0.02em; color: var(--yf-green-700); }
+    .sec-title em { font-style: normal; font-weight: inherit; color: inherit; }
     h1, h2, h3, h4, h5, h6 { font-style: normal; }
 
     /* PAGE HERO */
@@ -77,7 +84,7 @@
     .page-hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; display: flex; align-items: center; gap: 14px; }
     .page-hero-eyebrow::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; opacity: 0.7; }
     .page-hero-title { font-family: var(--ff); font-size: clamp(2.6rem,5.5vw,5.2rem); font-weight: 700; color: var(--cream); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px; }
-    .page-hero-title em { font-style: normal; color: var(--gold-light); font-weight: 300; }
+    .page-hero-title em { font-style: normal; color: inherit; font-weight: inherit; }
     .page-hero-desc { font-size: 1.1rem; font-weight: 300; color: rgba(244,237,224,0.7); max-width: 560px; line-height: 1.8; }
 
     /* INTRO */
@@ -95,7 +102,7 @@
     .retreat-card-body { background: var(--cream-warm); padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; }
     .retreat-card:nth-child(even) { direction: rtl; }
     .retreat-card:nth-child(even) .retreat-card-body { direction: ltr; }
-    .retreat-tag { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; display: block; }
+    .retreat-tag { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yf-green-700); margin-bottom: 12px; display: block; }
     .retreat-title { font-family: var(--ff); font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
     .retreat-desc { font-size: 1rem; color: var(--earth-mid); line-height: 1.82; margin-bottom: 20px; }
     .retreat-includes { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 32px; }
@@ -111,7 +118,7 @@
     .corporate-label { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
     .corporate-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
     .corporate-title { font-family: var(--ff); font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--cream); margin-bottom: 16px; }
-    .corporate-title em { font-style: normal; font-weight: 300; color: var(--gold-light); }
+    .corporate-title em { font-style: normal; font-weight: inherit; color: inherit; }
     .corporate-desc { font-size: 1rem; color: rgba(244,237,224,0.62); line-height: 1.82; }
     .corporate-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .corp-feat { background: rgba(255,255,255,.04); border: 1px solid rgba(244,237,224,.07); border-radius: 16px; padding: 22px 20px; }
@@ -124,7 +131,7 @@
     .foot-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 28px; }
     .foot-left { display: flex; flex-direction: column; gap: 20px; }
     .foot-brand { display: flex; align-items: center; gap: 14px; }
-    .foot-brand img { height: 64px; width: 64px; object-fit: contain; border-radius: 50%; background: rgba(244,237,224,0.1); padding: 3px; }
+    .foot-brand img { height: 56px; width: auto; object-fit: contain; }
     .foot-brand-text { font-family: var(--ff); font-size: 1.2rem; font-weight: 700; color: var(--cream); line-height: 1.2; }
     .foot-brand-sub { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(244,237,224,0.4); text-transform: uppercase; }
     .foot-addr { font-style: normal; font-size: 0.9rem; color: rgba(244,237,224,.5); line-height: 1.7; }
@@ -173,7 +180,7 @@
 
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="./brand_assets/yoga farm 3217 logo green@3x.png" alt="Yoga Farm 3217" class="nav-logo-img">
+    <img src="./brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217" class="nav-logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
@@ -182,10 +189,9 @@
     <li class="nav-drop">
       <a href="retreats.html" class="active">Retreats <span></span></a>
       <div class="drop-menu">
-        <a href="retreat-october.html">October Retreat</a>
+        <a href="retreat-october.html">Sacred Soil. Sacred Soul.</a>
         <a href="retreat-march.html">March Retreat</a>
         <a href="corporate-retreats.html">Corporate Retreats</a>
-        <a href="yoga-events.html#sacred-soil">Sacred Soil. Sacred Soul.</a>
       </div>
     </li>
     <li><a href="practitioners.html">Our Practitioners</a></li>
@@ -218,18 +224,18 @@
 
     <div class="retreat-card rev">
       <div class="retreat-card-img">
-        <img src="./brand_assets/retreatplacecard.jpg" alt="October yoga retreat at Yoga Farm 3217, Surf Coast Victoria">
+        <img src="./brand_assets/retreatplacecard.jpg" alt="Sacred Soil. Sacred Soul. women's glamping retreat at Yoga Farm 3217, Surf Coast Victoria">
       </div>
       <div class="retreat-card-body">
-        <span class="retreat-tag">Annual &middot; Spring</span>
-        <h2 class="retreat-title">October Retreat</h2>
-        <p class="retreat-desc">A spring immersion as the land is waking up &mdash; one of the most beautiful times to be at the Farm. Yin yoga, equine sessions, sound healing, and long shared meals. Full details and dates confirmed each year.</p>
+        <span class="retreat-tag">Women&rsquo;s Retreat &middot; October 16&ndash;18, 2027</span>
+        <h2 class="retreat-title">Sacred Soil. <em>Sacred Soul.</em></h2>
+        <p class="retreat-desc">A 2-night women&rsquo;s glamping retreat as the land wakes into spring &mdash; one of the most beautiful times to be at the Farm. Yin yoga, ceremony, sound, and long shared meals under the stars with the herd nearby.</p>
         <ul class="retreat-includes">
           <li>Daily Yin yoga and meditation</li>
           <li>Equine session with the herd</li>
           <li>Sound healing ceremony</li>
           <li>Nourishing shared meals</li>
-          <li>Accommodation on-site</li>
+          <li>Glamping accommodation on-site</li>
         </ul>
         <div class="retreat-btns">
           <a href="retreat-october.html" class="btn-fill">
@@ -246,9 +252,9 @@
         <img src="./brand_assets/retreatplacecard.jpg" alt="March yoga retreat at Yoga Farm 3217, Surf Coast Victoria">
       </div>
       <div class="retreat-card-body">
-        <span class="retreat-tag">Annual &middot; Autumn</span>
+        <span class="retreat-tag">Annual &middot; Autumn &middot; Dates TBC</span>
         <h2 class="retreat-title">March Retreat</h2>
-        <p class="retreat-desc">An autumn immersion as the season turns &mdash; cooler evenings, softer light, and a quieter energy on the land. The March retreat has a slightly more inward feel than October. A deeply restorative few days.</p>
+        <p class="retreat-desc">An autumn immersion as the season turns &mdash; cooler evenings, softer light, and a quieter energy on the land. A deeply restorative few days. Dates for the next March Retreat are still being confirmed &mdash; enquire to be notified first.</p>
         <ul class="retreat-includes">
           <li>Daily Yin yoga and restorative practices</li>
           <li>Time with the herd in the paddock</li>
@@ -275,7 +281,7 @@
       <div class="corporate-label">For Teams</div>
       <h2 class="corporate-title">Corporate <em>Retreats</em></h2>
       <p class="corporate-desc" style="margin-bottom:28px;">Bring your team to the Farm for a day or half-day of reconnection. Yoga, equine sessions, sound healing, and the space to remember what actually matters. Tailored to your group's needs.</p>
-      <a href="corporate-retreats.html" class="btn-fill" style="background:var(--gold);color:var(--earth);box-shadow:0 4px 24px rgba(201,169,110,0.3);">
+      <a href="corporate-retreats.html" class="btn-outline-dark">
         Enquire About Corporate Retreats
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -306,7 +312,7 @@
     <div class="foot-2col">
       <div class="foot-left">
         <div class="foot-brand">
-          <img src="./brand_assets/Yoga Farm Logo (002).jpeg" alt="Yoga Farm 3217">
+          <img src="./brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217">
           <div>
             <div class="foot-brand-text">Yoga Farm 3217</div>
             <div class="foot-brand-sub">Surf Coast, Victoria</div>

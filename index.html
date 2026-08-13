@@ -10,18 +10,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sage: #57835E;
-      --sage-light: #91B496;
-      --sage-pale: #E2EDE4;
-      --sage-dark: #3E6044;
-      --terra: #456648;
-      --terra-light: #7BA384;
-      --cream: #F4EDE0;
-      --cream-warm: #EDE1CC;
-      --earth: #1E1710;
-      --earth-mid: #5C4A38;
-      --gold: #C9A96E;
-      --gold-light: #E3C99A;
+      /* Monochrome Green palette — see Yoga-Farm-Style-Guide-Monochrome-Green.md */
+      --yf-green-100: #EAF0E6;
+      --yf-green-300: #A9C0A6;
+      --yf-green-500: #57835E;
+      --yf-green-700: #3C5B42;
+      --yf-green-900: #23361F;
+      --yf-cream: #F6F1E7;
+
+      /* legacy names kept so existing rules below don't need touching one-by-one —
+         every one resolves to a token above, so no second hue enters the system */
+      --sage: var(--yf-green-500);
+      --sage-light: var(--yf-green-300);
+      --sage-pale: var(--yf-green-100);
+      --sage-dark: var(--yf-green-700);
+      --terra: var(--yf-green-500);
+      --terra-light: var(--yf-green-700);
+      --cream: var(--yf-cream);
+      --cream-warm: var(--yf-green-100);
+      --earth: var(--yf-green-900);
+      --earth-mid: var(--yf-green-700);
+      --gold: var(--yf-green-300);
+      --gold-light: var(--yf-cream);
       --ff-display: 'Quicksand', system-ui, sans-serif;
       --ff-body: 'Quicksand', system-ui, sans-serif;
     }
@@ -193,15 +203,37 @@
       transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
       box-shadow: 0 4px 24px rgba(60,122,62,0.34), 0 1px 4px rgba(60,122,62,0.18);
     }
-    .btn-fill:hover { background: #345A3A; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.44); }
+    .btn-fill:hover { background: var(--yf-green-700); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.44); }
     .btn-fill:active { transform: translateY(0); }
+    /* Outline "Enquire" style — green on cream backgrounds */
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 13px 32px; background: transparent; color: var(--yf-green-700);
+      border: 1.5px solid var(--yf-green-500); border-radius: 999px;
+      font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover { background: var(--yf-green-100); transform: translateY(-2px); }
+    .btn-outline:active { transform: translateY(0); }
+    /* Outline "Enquire" style — cream on dark photo/video backgrounds */
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 13px 32px; background: transparent; color: var(--cream);
+      border: 1.5px solid rgba(244,237,224,0.55); border-radius: 999px;
+      font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+    }
+    .btn-outline-dark:hover { background: rgba(244,237,224,0.12); border-color: rgba(244,237,224,0.85); transform: translateY(-2px); }
+    .btn-outline-dark:active { transform: translateY(0); }
     .btn-ghost-hero {
       display: inline-flex; align-items: center; gap: 9px;
-      padding: 15px 28px; color: rgba(244,237,224,0.8);
-      font-size: 0.875rem; letter-spacing: 0.04em;
-      transition: color 0.3s;
+      padding: 13px 28px; color: var(--cream);
+      border: 1.5px solid rgba(244,237,224,0.55); border-radius: 999px;
+      font-size: 0.875rem; letter-spacing: 0.04em; font-weight: 500;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
     }
-    .btn-ghost-hero:hover { color: var(--cream); }
+    .btn-ghost-hero:hover { background: rgba(244,237,224,0.12); border-color: rgba(244,237,224,0.85); transform: translateY(-2px); }
+    .btn-ghost-hero:active { transform: translateY(0); }
     .btn-ghost-hero svg { transition: transform 0.3s; }
     .btn-ghost-hero:hover svg { transform: translateX(4px); }
 
@@ -244,8 +276,8 @@
       margin-bottom: 16px;
     }
     .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
-    .sec-title { font-family: var(--ff-display); font-size: clamp(2.1rem,3.8vw,3.4rem); font-weight: 600; line-height: 1.14; letter-spacing: -0.02em; color: var(--sage); }
-    .sec-title em { font-style: normal; font-weight: 300; color: inherit; }
+    .sec-title { font-family: var(--ff-display); font-size: clamp(2.1rem,3.8vw,3.4rem); font-weight: 700; line-height: 1.14; letter-spacing: -0.02em; color: var(--yf-green-700); }
+    .sec-title em { font-style: normal; font-weight: inherit; color: inherit; }
     h1, h2, h3, h4, h5, h6 { font-style: normal; }
     .about-body { font-size: 1.0625rem; color: var(--earth-mid); line-height: 1.82; margin: 20px 0 0; }
     .about-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
@@ -344,7 +376,7 @@
       transition: background 0.3s, transform 0.2s;
       box-shadow: 0 4px 20px rgba(60,122,62,.25);
     }
-    .newsletter-btn:hover { background: #345A3A; transform: translateY(-1px); }
+    .newsletter-btn:hover { background: var(--yf-green-700); transform: translateY(-1px); }
     .newsletter-msg { margin-top: 16px; font-size: 0.875rem; color: var(--sage-dark); min-height: 1.4em; }
 
     /* -- CONTACT -- */
@@ -392,7 +424,7 @@
       transition: background 0.3s,transform 0.2s,box-shadow 0.3s;
       box-shadow: 0 4px 24px rgba(60,122,62,.22);
     }
-    .fsub:hover { background: #345A3A; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,.32); }
+    .fsub:hover { background: var(--yf-green-700); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,.32); }
     .fsub:active { transform: translateY(0); }
 
     /* -- FOOTER -- */
@@ -507,10 +539,9 @@
     <li class="nav-drop">
       <a href="retreats.html">Retreats</a>
       <div class="drop-menu">
-        <a href="retreat-october.html">October Retreat</a>
+        <a href="retreat-october.html">Sacred Soil. Sacred Soul.</a>
         <a href="retreat-march.html">March Retreat</a>
         <a href="corporate-retreats.html">Corporate Retreats</a>
-        <a href="yoga-events.html#sacred-soil">Sacred Soil. Sacred Soul.</a>
       </div>
     </li>
     <li><a href="practitioners.html">Our Practitioners</a></li>
@@ -542,7 +573,7 @@
         Book
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="#contact" class="btn-ghost-hero">
+      <a href="#contact" class="btn-ghost-hero" onclick="return setInterest('General Enquiry', event)">
         Enquire
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -561,12 +592,11 @@
       <video class="about-main" autoplay muted loop playsinline preload="auto">
         <source src="./brand_assets/damhorsevid.mp4" type="video/mp4">
       </video>
-      <img src="https://placehold.co/280x280/4A7A4C/C8E0CA?text=" alt="Yoga class" class="about-accent">
     </div>
     <div class="about-text">
-      <h2 class=”sec-title rev d1”>Welcome to <em>Yoga Farm</em></h2>
-      <p class=”about-body rev d2”>Yoga Farm is 32 acres where you can actually slow down — not just talk about it. Most people say they feel it as soon as they arrive, before a class has even started or a horse has come over to say hello. We've brought together yoga, equine therapy, retreats, and a small community of practitioners, because healing rarely looks like just one thing. Some people come for an hour, some for a weekend, some keep coming back for years. However you find your way here, you're welcome exactly as you are.</p>
-      <a href="#contact" class="btn-fill rev d3" style="display:inline-flex;margin-top:32px;">
+      <h2 class="sec-title rev d1">Welcome to <em>Yoga Farm</em></h2>
+      <p class="about-body rev d2">Yoga Farm is 32 acres where you can actually slow down — not just talk about it. Most people say they feel it as soon as they arrive, before a class has even started or a horse has come over to say hello. We've brought together yoga, equine therapy, retreats, and a small community of practitioners, because healing rarely looks like just one thing. Some people come for an hour, some for a weekend, some keep coming back for years. However you find your way here, you're welcome exactly as you are.</p>
+      <a href="#contact" class="btn-outline rev d3" onclick="return setInterest('General Enquiry', event)" style="display:inline-flex;margin-top:32px;">
         Enquire
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -589,12 +619,12 @@
         <div class="offer-body">
           <h3 class="offer-title">Healing with Horses</h3>
           <ul class="offer-list">
-            <li>Equine Assisted Therapy with Anna</li>
-            <li>Equine Assisted Energy Healing with Anna &amp; Steph</li>
-            <li>Equine Assisted Reiki with Anna</li>
+            <li>Equine Assisted Therapy</li>
+            <li>Equine Assisted Reiki</li>
+            <li class="offer-link"><a href="#contact" onclick="return setInterest('General Enquiry', event)">Enquire to create your own experience with the herd</a></li>
           </ul>
           <div class="offer-btns">
-            <a href="#contact" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
+            <a href="#contact" class="btn-outline-dark" onclick="return setInterest('Equine Assisted Therapy', event)" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
             <a href="healing-with-horses.html" class="btn-explore">Explore <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
@@ -607,11 +637,10 @@
         <div class="offer-body">
           <h3 class="offer-title">Yoga &amp; Events</h3>
           <ul class="offer-list">
-            <li>Sacred Soil. Sacred Soul. &#8211; 2 night women&#39;s glamping retreat</li>
             <li>Yin Yoga &amp; Meditation</li>
             <li>Monthly Fire Horse Sessions</li>
             <li>Seasonal Healing Sounds with Yin</li>
-            <li>Monthly Equine Meditation</li>
+            <li>Equine Meditation Group &#8211; date TBC, not on Setmore yet</li>
           </ul>
           <div class="offer-btns">
             <a href="offerings.html#book" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Book</a>
@@ -627,9 +656,10 @@
         <div class="offer-body">
           <h3 class="offer-title">Retreats</h3>
           <ul class="offer-list">
-            <li>October 2026 Retreat</li>
-            <li>March 2027 Retreat</li>
-            <li class="offer-link"><a href="corporate-retreats.html">Corporate and Private Retreats also available</a></li>
+            <li>Sacred Soil. Sacred Soul. &#8211; 2 Night Women&rsquo;s Glamping Retreat</li>
+            <li>October 16&ndash;18, 2027</li>
+            <li>March Retreat &#8211; TBC</li>
+            <li><a href="corporate-retreats.html">Private Groups &amp; Corporate Bookings Available</a></li>
           </ul>
           <div class="offer-btns">
             <a href="offerings.html#book" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Book</a>
@@ -644,9 +674,9 @@
         <div class="offer-overlay"></div>
         <div class="offer-body">
           <h3 class="offer-title">Our Practitioners</h3>
-          <p style=”font-size:0.88rem;color:rgba(244,237,224,0.72);line-height:1.6;margin-bottom:24px;”>A range of holistic healing modalities are on offer at Yoga Farm.</p>
+          <p style="font-size:0.88rem;color:rgba(244,237,224,0.72);line-height:1.6;margin-bottom:24px;">Our wellbeing rooms host a unique range of holistic practitioners &mdash; from Naturopathy and Osteopathy/Somatic Experiencing, Psychotherapy/Hypnotherapy, Energy Healing, Psychology/EMDR, Women&rsquo;s Health Massage + more.</p>
           <div class="offer-btns">
-            <a href="#contact" class="btn-fill" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
+            <a href="#contact" class="btn-outline-dark" onclick="return setInterest('Room Rental / Practitioners', event)" style="font-size:0.85rem;padding:12px 24px;">Enquire</a>
             <a href="practitioners.html" class="btn-explore">Explore <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
@@ -740,15 +770,6 @@
             <div class="con-val">(03) 5368 2217</div>
           </div>
         </div>
-        <div class="con-detail rev d5">
-          <div class="con-icon">
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M8.5 5v3.5L10.5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          </div>
-          <div>
-            <div class="con-lbl">Studio Hours</div>
-            <div class="con-val">Mon&ndash;Fri: 6:00 AM &ndash; 7:00 PM<br>Sat&ndash;Sun: 7:00 AM &ndash; 5:00 PM</div>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -756,44 +777,46 @@
       <form id="enquiryForm" onsubmit="submitForm(event)">
         <div class="form-row">
           <div class="fg">
-            <label class="flabel">First Name</label>
-            <input type="text" class="finput" placeholder="Your first name" required>
+            <label class="flabel" for="f-first">First Name</label>
+            <input type="text" class="finput" id="f-first" name="First Name" placeholder="Your first name" required>
           </div>
           <div class="fg">
-            <label class="flabel">Last Name</label>
-            <input type="text" class="finput" placeholder="Your last name" required>
+            <label class="flabel" for="f-last">Last Name</label>
+            <input type="text" class="finput" id="f-last" name="Last Name" placeholder="Your last name" required>
           </div>
         </div>
         <div class="fg">
-          <label class="flabel">Email</label>
-          <input type="email" class="finput" placeholder="your@email.com" required>
+          <label class="flabel" for="f-email">Email</label>
+          <input type="email" class="finput" id="f-email" name="Email" placeholder="your@email.com" required>
         </div>
         <div class="fg">
-          <label class="flabel">Phone</label>
-          <input type="tel" class="finput" placeholder="Your phone number">
+          <label class="flabel" for="f-phone">Phone</label>
+          <input type="tel" class="finput" id="f-phone" name="Phone" placeholder="Your phone number">
         </div>
         <div class="fg">
-          <label class="flabel">I'm interested in</label>
-          <select class="fselect">
+          <label class="flabel" for="interested">I'm interested in</label>
+          <select class="fselect" id="interested" name="Interested In">
             <option value="">Select an offering&hellip;</option>
-            <option>Equine Assisted Therapy</option>
-            <option>Reiki with the Herd</option>
+            <option>Equine Assisted Therapy &mdash; $150</option>
+            <option>Reiki with the Herd &mdash; $180</option>
+            <option>Reiki with Anna &mdash; $80</option>
             <option>Private EA Therapy + Yin with Reiki</option>
+            <option>Gift Cards</option>
             <option>Yin Yoga &amp; Meditation</option>
             <option>Monthly Fire Horse Sessions</option>
+            <option>Summer Solstice Fire Horse Session</option>
             <option>Seasonal Healing Sounds with Yin</option>
-            <option>Monthly Equine Meditation</option>
-            <option>October Retreat</option>
+            <option>Equine Meditation Group</option>
+            <option>Sacred Soil. Sacred Soul.</option>
             <option>March Retreat</option>
             <option>Corporate Retreats</option>
             <option>Room Rental / Practitioners</option>
-            <option>Reiki with Anna</option>
             <option>General Enquiry</option>
           </select>
         </div>
         <div class="fg">
-          <label class="flabel">Message</label>
-          <textarea class="ftextarea" placeholder="Tell us a little about yourself and what brings you here&hellip;"></textarea>
+          <label class="flabel" for="f-message">Message</label>
+          <textarea class="ftextarea" id="f-message" name="Message" placeholder="Tell us a little about yourself and what brings you here&hellip;"></textarea>
         </div>
         <button type="submit" class="fsub" id="fsub">Send Message</button>
       </form>
@@ -884,23 +907,60 @@ document.getElementById('hamburger').addEventListener('click', () => { mobNav.cl
 document.getElementById('mobClose').addEventListener('click', closeMob);
 function closeMob() { mobNav.classList.remove('open'); document.body.style.overflow = ''; }
 
-// Form &mdash; open email client via mailto
+// Contact form — submits via Formspree (no mail-client popup) once FORMSPREE_ENDPOINT
+// is set below; falls back to opening the visitor's email client until then.
+// Get the endpoint by creating a free form at https://formspree.io and pasting its URL here.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwlebyjb';
+
 function submitForm(e) {
   e.preventDefault();
   const form = e.target;
-  const first = form.querySelector('input[placeholder*="first"]').value;
-  const last = form.querySelector('input[placeholder*="last"]').value;
-  const email = form.querySelector('input[type="email"]').value;
-  const phone = form.querySelector('input[type="tel"]').value;
-  const interest = form.querySelector('select').value || 'General Enquiry';
-  const msg = form.querySelector('textarea').value;
+  const btn = document.getElementById('fsub');
+  const interest = document.getElementById('interested').value || 'General Enquiry';
+
+  if (FORMSPREE_ENDPOINT) {
+    const data = new FormData(form);
+    data.set('_subject', `Website Enquiry: ${interest}`);
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    fetch(FORMSPREE_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
+      .then(res => {
+        if (res.ok) { btn.textContent = 'Sent ✓'; btn.style.background = 'var(--yf-green-700)'; form.reset(); }
+        else { btn.textContent = 'Something went wrong — try again'; }
+      })
+      .catch(() => { btn.textContent = 'Something went wrong — try again'; })
+      .finally(() => {
+        setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; btn.disabled = false; }, 3500);
+      });
+    return;
+  }
+
+  // Fallback until FORMSPREE_ENDPOINT is configured above
+  const first = document.getElementById('f-first').value;
+  const last = document.getElementById('f-last').value;
+  const email = document.getElementById('f-email').value;
+  const phone = document.getElementById('f-phone').value;
+  const msg = document.getElementById('f-message').value;
   const subject = encodeURIComponent(`Website Enquiry: ${interest}`);
   const body = encodeURIComponent(`Name: ${first} ${last}\nEmail: ${email}\nPhone: ${phone}\nInterest: ${interest}\n\n${msg}`);
   window.location.href = `mailto:yogafarm3217@gmail.com?subject=${subject}&body=${body}`;
-  const btn = document.getElementById('fsub');
-  btn.textContent = 'Opening Email… ✓'; btn.style.background = '#3E6044'; btn.disabled = true;
+  btn.textContent = 'Opening Email… ✓'; btn.style.background = 'var(--yf-green-700)'; btn.disabled = true;
   setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; btn.disabled = false; }, 3000);
 }
+
+// Pre-select the "I'm interested in" dropdown — called from Enquire buttons sitewide,
+// either directly (same-page cards) or via a ?interest= link from another page (see below).
+function selectInterest(value) {
+  const select = document.getElementById('interested');
+  if (!select || !value) return;
+  const match = Array.from(select.options).find(o => o.value === value || o.value.indexOf(value) === 0);
+  if (match) select.value = match.value;
+}
+function setInterest(value, e) {
+  selectInterest(value);
+  return true; // let the anchor's normal smooth-scroll handler (below) still run
+}
+const interestParam = new URLSearchParams(window.location.search).get('interest');
+if (interestParam) selectInterest(interestParam);
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {

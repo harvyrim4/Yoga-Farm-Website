@@ -10,9 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sage: #57835E; --sage-light: #91B496; --sage-pale: #E2EDE4; --sage-dark: #3E6044;
-      --terra: #456648; --terra-light: #7BA384; --cream: #F4EDE0; --cream-warm: #EDE1CC;
-      --earth: #1E1710; --earth-mid: #5C4A38; --gold: #C9A96E; --gold-light: #E3C99A;
+      /* Monochrome Green palette — see Yoga-Farm-Style-Guide-Monochrome-Green.md */
+      --yf-green-100: #EAF0E6; --yf-green-300: #A9C0A6; --yf-green-500: #57835E;
+      --yf-green-700: #3C5B42; --yf-green-900: #23361F; --yf-cream: #F6F1E7;
+      --sage: var(--yf-green-500); --sage-light: var(--yf-green-300); --sage-pale: var(--yf-green-100); --sage-dark: var(--yf-green-700);
+      --terra: var(--yf-green-500); --terra-light: var(--yf-green-700); --cream: var(--yf-cream); --cream-warm: var(--yf-green-100);
+      --earth: var(--yf-green-900); --earth-mid: var(--yf-green-700); --gold: var(--yf-green-300); --gold-light: var(--yf-cream);
       --ff-display: 'Quicksand', system-ui, sans-serif; --ff-body: 'Quicksand', system-ui, sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,8 +37,8 @@
       box-shadow: 0 1px 0 rgba(92,74,56,0.1), 0 8px 32px rgba(30,23,16,0.06);
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo-img { height: 50px; width: 50px; object-fit: contain; border-radius: 50%; background: var(--cream); padding: 3px; box-shadow: 0 2px 8px rgba(30,23,16,0.12); }
+    .nav-logo { display: flex; align-items: center; background: rgba(15,22,15,0.4); border-radius: 10px; padding: 5px 10px; }
+    .nav-logo-img { height: 44px; width: auto; object-fit: contain; }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a { font-size: 0.8rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--earth-mid); position: relative; transition: color 0.3s; }
     .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.3s; }
@@ -74,7 +77,7 @@
     .page-hero .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .page-hero .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
     .page-hero h1 { font-family: var(--ff-display); font-size: clamp(2.4rem,5vw,4rem); font-weight: 700; color: var(--cream); letter-spacing: -0.02em; line-height: 1.1; }
-    .page-hero h1 em { font-style: normal; font-weight: 300; color: var(--gold-light); }
+    .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
 
     /* OFFERINGS SECTIONS */
     .off-section { padding: 80px 0; }
@@ -92,7 +95,7 @@
     .offering-name { font-size: 1.0625rem; font-weight: 500; color: var(--earth); }
     .offering-sub { font-size: 0.85rem; color: var(--earth-mid); margin-top: 3px; }
     .btn-fill { display: inline-flex; align-items: center; gap: 9px; padding: 12px 28px; background: var(--terra); color: var(--cream); border-radius: 999px; font-size: 0.85rem; letter-spacing: 0.04em; font-weight: 500; white-space: nowrap; transition: background 0.3s, transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 24px rgba(60,122,62,0.28); }
-    .btn-fill:hover { background: #345A3A; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.4); }
+    .btn-fill:hover { background: var(--yf-green-700); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.4); }
     .btn-fill:active { transform: translateY(0); }
     .btn-outline { display: inline-flex; align-items: center; gap: 9px; padding: 11px 26px; background: transparent; color: var(--sage-dark); border: 1.5px solid var(--sage); border-radius: 999px; font-size: 0.85rem; letter-spacing: 0.04em; font-weight: 500; white-space: nowrap; transition: background 0.3s, color 0.3s, transform 0.2s; }
     .btn-outline:hover { background: var(--sage-pale); transform: translateY(-2px); }
@@ -111,7 +114,7 @@
     .foot-addr a:hover { color: var(--cream); }
     .foot-right { padding-top: 4px; }
     .foot-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    .foot-brand img { height: 64px; width: 64px; object-fit: contain; border-radius: 50%; background: rgba(244,237,224,0.1); padding: 3px; }
+    .foot-brand img { height: 56px; width: auto; object-fit: contain; }
     .foot-brand-text { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--cream); line-height: 1.2; }
     .foot-brand-sub { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(244,237,224,0.4); text-transform: uppercase; }
     .foot-social { display: flex; gap: 10px; }
@@ -157,7 +160,7 @@
 <!-- Nav -->
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="./brand_assets/Yoga Farm Logo (002).jpeg" alt="Yoga Farm 3217" class="nav-logo-img">
+    <img src="./brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217" class="nav-logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
@@ -166,10 +169,9 @@
     <li class="nav-drop">
       <a href="index.html#retreats">Retreats</a>
       <div class="drop-menu">
-        <a href="retreat-october.html">October Retreat</a>
+        <a href="retreat-october.html">Sacred Soil. Sacred Soul.</a>
         <a href="retreat-march.html">March Retreat</a>
         <a href="corporate-retreats.html">Corporate Retreats</a>
-        <a href="yoga-events.html#sacred-soil">Sacred Soil. Sacred Soul.</a>
       </div>
     </li>
     <li><a href="index.html#practitioners">Our Practitioners</a></li>
@@ -200,47 +202,40 @@
           <div class="offering-name">Yin Yoga &amp; Meditation</div>
           <div class="offering-sub">Yoga &amp; Events</div>
         </div>
-        <a href="index.html#contact" class="btn-fill">Book</a>
+        <a href="index.html?interest=Yin+Yoga+%26+Meditation#contact" class="btn-fill" onclick="return bookNow('yinYoga', event)">Book</a>
       </div>
       <div class="offering-row">
         <div>
           <div class="offering-name">Monthly Fire Horse Sessions</div>
           <div class="offering-sub">Yoga &amp; Events</div>
         </div>
-        <a href="index.html#contact" class="btn-fill">Book</a>
+        <a href="index.html?interest=Monthly+Fire+Horse+Sessions#contact" class="btn-fill" onclick="return bookNow('fireHorse', event)">Book</a>
       </div>
       <div class="offering-row">
         <div>
           <div class="offering-name">Seasonal Healing Sounds with Yin</div>
           <div class="offering-sub">Yoga &amp; Events</div>
         </div>
-        <a href="index.html#contact" class="btn-fill">Book</a>
+        <a href="index.html?interest=Seasonal+Healing+Sounds+with+Yin#contact" class="btn-fill" onclick="return bookNow('healingSounds', event)">Book</a>
       </div>
       <div class="offering-row">
         <div>
           <div class="offering-name">Summer Solstice Fire Horse Session</div>
           <div class="offering-sub">Yoga &amp; Events</div>
         </div>
-        <a href="index.html#contact" class="btn-fill">Book</a>
+        <a href="index.html?interest=Summer+Solstice+Fire+Horse+Session#contact" class="btn-fill" onclick="return bookNow('summerSolstice', event)">Book</a>
       </div>
       <div class="offering-row">
         <div>
-          <div class="offering-name">Monthly Equine Meditation</div>
-          <div class="offering-sub">Yoga &amp; Events</div>
-        </div>
-        <a href="index.html#contact" class="btn-fill">Book</a>
-      </div>
-      <div class="offering-row">
-        <div>
-          <div class="offering-name">October Retreat</div>
-          <div class="offering-sub">Retreats &mdash; deposit secures your spot</div>
+          <div class="offering-name">Sacred Soil. Sacred Soul.</div>
+          <div class="offering-sub">Retreats &mdash; Oct 16&ndash;18, 2027 &mdash; Early Bird $1,850, $500 deposit secures your spot</div>
         </div>
         <a href="retreat-october.html" class="btn-fill">Learn More</a>
       </div>
       <div class="offering-row">
         <div>
           <div class="offering-name">March Retreat</div>
-          <div class="offering-sub">Retreats &mdash; deposit secures your spot</div>
+          <div class="offering-sub">Retreats &mdash; dates TBC &mdash; deposit secures your spot</div>
         </div>
         <a href="retreat-march.html" class="btn-fill">Learn More</a>
       </div>
@@ -259,24 +254,38 @@
     <div class="rev d1">
       <div class="offering-row">
         <div>
-          <div class="offering-name">Equine Assisted Therapy</div>
+          <div class="offering-name">Equine Assisted Therapy &mdash; $150</div>
           <div class="offering-sub">Healing with Horses</div>
         </div>
-        <a href="index.html#contact" class="btn-outline">Enquire</a>
+        <a href="index.html?interest=Equine+Assisted+Therapy#contact" class="btn-outline">Enquire</a>
       </div>
       <div class="offering-row">
         <div>
-          <div class="offering-name">Reiki with the Herd</div>
+          <div class="offering-name">Reiki with the Herd &mdash; $180</div>
           <div class="offering-sub">Healing with Horses</div>
         </div>
-        <a href="index.html#contact" class="btn-outline">Enquire</a>
+        <a href="index.html?interest=Reiki+with+the+Herd#contact" class="btn-outline">Enquire</a>
       </div>
       <div class="offering-row">
         <div>
           <div class="offering-name">Private Equine Assisted Therapy + Yin with Reiki</div>
           <div class="offering-sub">Healing with Horses</div>
         </div>
-        <a href="index.html#contact" class="btn-outline">Enquire</a>
+        <a href="index.html?interest=Private+EA+Therapy+%2B+Yin+with+Reiki#contact" class="btn-outline">Enquire</a>
+      </div>
+      <div class="offering-row">
+        <div>
+          <div class="offering-name">Equine Meditation Group</div>
+          <div class="offering-sub">Yoga &amp; Events &mdash; date TBC, not on Setmore yet</div>
+        </div>
+        <a href="index.html?interest=Equine+Meditation+Group#contact" class="btn-outline">Enquire</a>
+      </div>
+      <div class="offering-row">
+        <div>
+          <div class="offering-name">Gift Cards</div>
+          <div class="offering-sub">For an amount or a specific experience</div>
+        </div>
+        <a href="index.html?interest=Gift+Cards#contact" class="btn-outline">Enquire</a>
       </div>
       <div class="offering-row">
         <div>
@@ -287,24 +296,17 @@
       </div>
       <div class="offering-row">
         <div>
-          <div class="offering-name">Sacred Soil. Sacred Soul.</div>
-          <div class="offering-sub">Retreats &mdash; 2-night women&rsquo;s glamping retreat</div>
-        </div>
-        <a href="index.html#contact" class="btn-outline">Enquire</a>
-      </div>
-      <div class="offering-row">
-        <div>
           <div class="offering-name">Room Rental &mdash; Practitioners</div>
           <div class="offering-sub">Our Practitioners &mdash; space available for qualified practitioners</div>
         </div>
-        <a href="index.html#contact" class="btn-outline">Enquire</a>
+        <a href="index.html?interest=Room+Rental+%2F+Practitioners#contact" class="btn-outline">Enquire</a>
       </div>
       <div class="offering-row">
         <div>
-          <div class="offering-name">Reiki with Anna</div>
-          <div class="offering-sub">Our Practitioners</div>
+          <div class="offering-name">Reiki with Anna &mdash; $80</div>
+          <div class="offering-sub">Our Practitioners &mdash; Wellbeing Room</div>
         </div>
-        <a href="index.html#contact" class="btn-outline">Enquire</a>
+        <a href="index.html?interest=Reiki+with+Anna#contact" class="btn-outline">Enquire</a>
       </div>
     </div>
   </div>
@@ -316,7 +318,7 @@
     <div class="foot-2col">
       <div class="foot-left">
         <div class="foot-brand">
-          <img src="./brand_assets/Yoga Farm Logo (002).jpeg" alt="Yoga Farm 3217">
+          <img src="./brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217">
           <div>
             <div class="foot-brand-text">Yoga Farm 3217</div>
             <div class="foot-brand-sub">Surf Coast, Victoria</div>
@@ -367,6 +369,21 @@ const mobClose = document.getElementById('mobClose');
 function closeMob() { mobNav.classList.remove('open'); }
 hamburger.addEventListener('click', () => mobNav.classList.add('open'));
 mobClose.addEventListener('click', closeMob);
+
+// Book buttons — paste real Setmore booking URLs here as they're created.
+// Until a link is set, the button falls back to the Enquire flow instead of a dead link.
+const SETMORE_LINKS = {
+  yinYoga: 'https://yogafarm3217.setmore.com/classes/68ad3998-0377-4587-b2ef-271551ddf8ab',
+  fireHorse: 'https://yogafarm3217.setmore.com/classes/10c8850d-59ac-4eaa-bcb7-aef824ac9b20',
+  healingSounds: 'https://yogafarm3217.setmore.com/classes/2d72ce13-0f0c-4435-9053-2ae9e44d3c30',
+  summerSolstice: ''
+};
+function bookNow(key, e) {
+  const url = SETMORE_LINKS[key];
+  if (url) { e.preventDefault(); window.open(url, '_blank', 'noopener'); }
+  // else: let the link's href carry the visitor to the pre-filled Enquire form
+  return true;
+}
 </script>
 
 <script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>

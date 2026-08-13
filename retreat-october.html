@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>October Retreat &mdash; Yoga Farm 3217 &middot; Surf Coast Victoria</title>
-  <meta name="description" content="October yoga and wellness retreat at Yoga Farm 3217, Mt Duneed &mdash; Yin yoga, equine therapy, meditation and sound healing on Victoria's Surf Coast near Geelong.">
+  <title>Sacred Soil. Sacred Soul. &mdash; Women's Glamping Retreat &middot; Yoga Farm 3217</title>
+  <meta name="description" content="Sacred Soil. Sacred Soul. &mdash; a 2-night women's glamping yoga retreat at Yoga Farm 3217, Mt Duneed. Yin yoga, equine therapy, meditation and sound healing on Victoria's Surf Coast near Geelong. October 16&ndash;18, 2027.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sage: #57835E; --sage-light: #91B496; --sage-pale: #E2EDE4; --sage-dark: #3E6044;
-      --terra: #456648; --cream: #F4EDE0; --cream-warm: #EDE1CC;
-      --earth: #1E1710; --earth-mid: #5C4A38; --gold: #C9A96E; --gold-light: #E3C99A;
+      /* Monochrome Green palette — see Yoga-Farm-Style-Guide-Monochrome-Green.md */
+      --yf-green-100: #EAF0E6; --yf-green-300: #A9C0A6; --yf-green-500: #57835E;
+      --yf-green-700: #3C5B42; --yf-green-900: #23361F; --yf-cream: #F6F1E7;
+      --sage: var(--yf-green-500); --sage-light: var(--yf-green-300); --sage-pale: var(--yf-green-100); --sage-dark: var(--yf-green-700);
+      --terra: var(--yf-green-500); --cream: var(--yf-cream); --cream-warm: var(--yf-green-100);
+      --earth: var(--yf-green-900); --earth-mid: var(--yf-green-700); --gold: var(--yf-green-300); --gold-light: var(--yf-cream);
       --ff-display: 'Quicksand', system-ui, sans-serif; --ff-body: 'Quicksand', system-ui, sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,8 +32,8 @@
 
     /* NAV */
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 18px 48px; background: rgba(244,237,224,0.94); backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(92,74,56,0.1), 0 8px 32px rgba(30,23,16,0.06); display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo-img { height: 50px; width: 50px; object-fit: contain; border-radius: 50%; background: var(--cream); padding: 3px; box-shadow: 0 2px 8px rgba(30,23,16,0.12); }
+    .nav-logo { display: flex; align-items: center; background: rgba(15,22,15,0.4); border-radius: 10px; padding: 5px 10px; }
+    .nav-logo-img { height: 44px; width: auto; object-fit: contain; }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a { font-size: 0.8rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--earth-mid); position: relative; transition: color 0.3s; }
     .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.3s; }
@@ -56,18 +59,18 @@
     .page-hero-img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
     .page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(30,23,16,0.3) 0%, rgba(30,23,16,0.65) 100%); }
     .page-hero-content { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px; padding-top: 100px; }
-    .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 16px; }
+    .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--yf-green-700); margin-bottom: 16px; }
     .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
     .page-hero-content .sec-label { color: var(--gold); }
     .page-hero-content .dates { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px; }
     .page-hero-content h1 { font-family: var(--ff-display); font-size: clamp(2.6rem,6vw,5rem); font-weight: 700; color: var(--cream); letter-spacing: -0.02em; line-height: 1.08; }
-    .page-hero-content h1 em { font-style: normal; font-weight: 300; color: var(--gold-light); }
+    .page-hero-content h1 em { font-style: normal; font-weight: inherit; color: inherit; }
 
     /* CONTENT */
     .retreat-content { padding: 96px 48px; max-width: 800px; margin: 0 auto; }
     .retreat-content p { font-size: 1.0625rem; color: var(--earth-mid); line-height: 1.85; margin-bottom: 28px; }
     .retreat-content h2 { font-family: var(--ff-display); font-size: clamp(1.6rem,2.5vw,2.2rem); font-weight: 700; letter-spacing: -0.02em; color: var(--earth); margin-bottom: 20px; margin-top: 48px; }
-    .retreat-content h2 em { font-style: normal; font-weight: 300; color: var(--sage-dark); }
+    .retreat-content h2 em { font-style: normal; font-weight: inherit; color: inherit; }
     .includes-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px; }
     .includes-list li { display: flex; align-items: flex-start; gap: 14px; font-size: 1rem; color: var(--earth-mid); line-height: 1.6; }
     .includes-list li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); flex-shrink: 0; margin-top: 8px; }
@@ -78,7 +81,7 @@
     }
     .book-block p { font-size: 0.9375rem; color: var(--earth-mid); margin: 0; max-width: 440px; }
     .btn-fill { display: inline-flex; align-items: center; gap: 9px; padding: 15px 36px; background: var(--terra); color: var(--cream); border-radius: 999px; font-size: 0.9375rem; font-weight: 600; letter-spacing: 0.04em; transition: background 0.3s, transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 24px rgba(60,122,62,0.3); }
-    .btn-fill:hover { background: #345A3A; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.42); }
+    .btn-fill:hover { background: var(--yf-green-700); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.42); }
     .deposit-note { font-size: 0.8rem; color: var(--earth-mid); opacity: 0.7; font-style: italic; }
 
     /* FOOTER */
@@ -91,7 +94,7 @@
     .foot-addr a:hover { color: var(--cream); }
     .foot-right { padding-top: 4px; }
     .foot-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    .foot-brand img { height: 64px; width: 64px; object-fit: contain; border-radius: 50%; background: rgba(244,237,224,0.1); padding: 3px; }
+    .foot-brand img { height: 56px; width: auto; object-fit: contain; }
     .foot-brand-text { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--cream); line-height: 1.2; }
     .foot-brand-sub { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(244,237,224,0.4); text-transform: uppercase; }
     .foot-social { display: flex; gap: 10px; }
@@ -135,7 +138,7 @@
 <!-- Nav -->
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="./brand_assets/Yoga Farm Logo (002).jpeg" alt="Yoga Farm 3217" class="nav-logo-img">
+    <img src="./brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217" class="nav-logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
@@ -144,10 +147,9 @@
     <li class="nav-drop">
       <a href="index.html#retreats">Retreats</a>
       <div class="drop-menu">
-        <a href="retreat-october.html">October Retreat</a>
+        <a href="retreat-october.html">Sacred Soil. Sacred Soul.</a>
         <a href="retreat-march.html">March Retreat</a>
         <a href="corporate-retreats.html">Corporate Retreats</a>
-        <a href="yoga-events.html#sacred-soil">Sacred Soil. Sacred Soul.</a>
       </div>
     </li>
     <li><a href="index.html#practitioners">Our Practitioners</a></li>
@@ -160,18 +162,18 @@
 
 <!-- Hero -->
 <section class="page-hero">
-  <img src="https://placehold.co/1440x900/1A2E1A/4A7A4C" alt="October retreat at Yoga Farm 3217, Surf Coast Victoria" class="page-hero-img">
+  <img src="./brand_assets/retreatplacecard.jpg" alt="Sacred Soil. Sacred Soul. women's glamping retreat at Yoga Farm 3217, Surf Coast Victoria" class="page-hero-img">
   <div class="page-hero-content">
-    <div class="sec-label">Retreats</div>
-    <div class="dates">October 2025 &mdash; Dates TBC</div>
-    <h1>October <em>Retreat</em></h1>
+    <div class="sec-label">Women&rsquo;s Retreat</div>
+    <div class="dates">October 16&ndash;18, 2027</div>
+    <h1>Sacred Soil. <em>Sacred Soul.</em></h1>
   </div>
 </section>
 
 <!-- Content -->
 <div class="retreat-content">
-  <p class="rev">Join us for a few days of deep rest and renewal on the farm &mdash; away from screens, schedules, and noise. The October Retreat gathers a small group of people ready to slow down together, reconnect with the body, and let the land do its quiet work.</p>
-  <p class="rev d1">We move through mornings with Yin Yoga and meditation, afternoons with equine sessions and sound healing, and evenings gathered around long tables with nourishing food. Nothing is rushed. Everything is intentional.</p>
+  <p class="rev">A 2-night women&rsquo;s glamping retreat on the farm &mdash; an immersive experience rooted in the land, designed to restore and reconnect. Away from screens, schedules, and noise, this retreat gathers a small group of women ready to slow down together, reconnect with the body, and let the land do its quiet work.</p>
+  <p class="rev d1">We move through mornings with Yin Yoga and meditation, afternoons with equine sessions and sound healing, and evenings gathered around long tables with nourishing food &mdash; set amid the paddocks under the stars with the herd nearby. Nothing is rushed. Everything is intentional.</p>
 
   <h2 class="rev">What's <em>Included</em></h2>
   <ul class="includes-list rev d1">
@@ -180,14 +182,15 @@
     <li>Seasonal Sound Healing with Yin</li>
     <li>Farm-to-table meals and snacks throughout the retreat</li>
     <li>Guided nature walks on the 40-acre property</li>
-    <li>Accommodation on-site (details shared on booking)</li>
+    <li>Glamping accommodation on-site (details shared on booking)</li>
     <li>Welcome pack and journalling materials</li>
     <li>Open fire evenings and communal gathering time</li>
   </ul>
 
   <div class="book-block rev d2">
     <div class="sec-label" style="justify-content:center;">Secure Your Spot</div>
-    <a href="index.html#contact" class="btn-fill">
+    <p style="font-size:1.15rem;font-weight:600;color:var(--earth);margin:0;">Early Bird <span style="color:var(--yf-green-700);">$1,850</span> <span style="font-weight:400;color:var(--earth-mid);font-size:0.95rem;">&mdash; $500 deposit secures your spot</span></p>
+    <a href="index.html?interest=Sacred+Soil.+Sacred+Soul.#contact" class="btn-fill" onclick="return bookNow('sacredSoil', event)">
       Book Now
       <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -201,7 +204,7 @@
     <div class="foot-2col">
       <div class="foot-left">
         <div class="foot-brand">
-          <img src="./brand_assets/Yoga Farm Logo (002).jpeg" alt="Yoga Farm 3217">
+          <img src="./brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217">
           <div>
             <div class="foot-brand-text">Yoga Farm 3217</div>
             <div class="foot-brand-sub">Surf Coast, Victoria</div>
@@ -247,6 +250,15 @@ const mobNav = document.getElementById('mobNav');
 const mobClose = document.getElementById('mobClose');
 hamburger.addEventListener('click', () => mobNav.classList.add('open'));
 mobClose.addEventListener('click', () => mobNav.classList.remove('open'));
+
+// Paste the real Setmore deposit-booking URL here once created.
+// Until it's set, the button falls back to the pre-filled Enquire form.
+const SETMORE_LINKS = { sacredSoil: 'https://yogafarm3217.setmore.com/classes/336d4ac2-4026-4707-a5ce-7b74acfb4a14' };
+function bookNow(key, e) {
+  const url = SETMORE_LINKS[key];
+  if (url) { e.preventDefault(); window.open(url, '_blank', 'noopener'); }
+  return true;
+}
 </script>
 
 <script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>
