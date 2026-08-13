@@ -13,7 +13,7 @@ August 1, 2026
 - [x] Homepage — hero, about section, offering cards, testimonials, newsletter, contact form, footer
 - [x] Navigation + Retreats dropdown (Sacred Soil. Sacred Soul. / March Retreat / Corporate Retreats)
 - [x] /offerings page
-- [x] October Retreat page
+- [x] Sacred Soil. Sacred Soul. retreat page (`retreat-october.html`, formerly "October Retreat")
 - [x] March Retreat page
 - [x] Corporate Retreats page
 - [ ] About page — no `about.html` exists; nav "About" still links to `#about` anchor on homepage
@@ -32,31 +32,14 @@ August 1, 2026
 - About page: standalone `about.html` not yet built
 - Video autoplay: needs testing on Anna's device after serve.mjs fix
 - `retreat-october.html`'s "What's Included" list was carried over from the old generic October Retreat copy — reads consistent with the Sacred Soil description but Anna should confirm/rewrite it specifically for the 2-night glamping retreat
-- **Visual QA not run this session** — this dev machine has no Node.js installed, so `serve.mjs`/`screenshot.mjs` couldn't be run to visually verify the 2026-08-13 changes. All changes were verified by re-reading the edited HTML and a tag-balance check, but a real browser screenshot pass (per CLAUDE.md workflow) is still owed before this goes live.
+- **Visual QA still not run** — confirmed two separate blockers this session: no Node.js on this machine (rules out `serve.mjs`/`screenshot.mjs`), and the PowerShell tool available to Claude Code here runs in Constrained Language Mode, which also blocks the Node-free `server.ps1` fallback (`New-Object System.Net.HttpListener` fails outright). Chrome itself is installed and would work fine — it's specifically the sandboxed automation that can't start a local server. Someone running `server.ps1` directly in their own terminal (not through Claude Code) should still work fine. A real screenshot pass is still owed before launch.
+- **Two doc/code discrepancies found during 2026-08-13 cleanup, not fixed (flagging for a decision rather than guessing):**
+  1. CLAUDE.md's Hard Rules say "No scroll-triggered animation, parallax, or crossfading sections anywhere on the site," but `index.html`'s hero has a scroll-linked parallax effect on the background video (`heroBg.style.transform` tied to `scrollY`) that predates this session. Either the rule needs loosening to explicitly exempt hero parallax, or the parallax script should come out — worth a call given the NDIS/accessibility context (motion sensitivity).
+  2. CLAUDE.md's Screenshot Workflow section still references `C:/Users/nateh/AppData/Local/Temp/puppeteer-test/` for Puppeteer — this dev machine is logged in as a different user and has no Node.js at all, so this path is stale/unverifiable from here. Needs updating once someone confirms which machine/user this workflow actually runs on.
 
 ## Recently locked in
-(Already reflected in CLAUDE.md)
-- Tagline: "Land. Breathe. Belong."
-- Font: Quicksand, headings + body
-- 6-item nav structure
-- Two CTA labels only: Book / Enquire
-- Homepage section order: hero → Welcome to Yoga Farm → 2×2 cards → testimonials → newsletter → contact form → footer
-- Scroll-triggered animations (.rev/IntersectionObserver) are intentional and permitted site-wide
-- Homepage about section heading: "Welcome to Yoga Farm" with final body copy (locked)
-- All four offering card contents updated (see CLAUDE.md table)
-- Practitioners page: full real directory — Anna Rimmer, Robyn Thompson, Caroline Chee, Steve Tibbits, Steph Sanzaro, Kimina Lyall, Josephine Lange
-- Mojibake fixed across all 9 HTML files (session 2026-07-13)
-- Copyright year auto-updates in all 9 footers (session 2026-07-13)
-- Offering name: **Monthly Fire Horse Sessions** (not "Fire Horse Sessions") — canonical, updated everywhere
-- **Sacred Soil. Sacred Soul.** confirmed as a live offering — added to offerings.html (enquire), yoga-events.html (card + anchor `#sacred-soil`), and all 9 nav Retreats dropdowns
-- Anna Rimmer phone display corrected: 0414 283 985 (href and display now match)
-- Hero CTA anchors on offerings.html (id="book", id="enquire") exist and work — handoff note was incorrect
-- **Colour scheme decided**: "Monochrome Green" palette per `Yoga-Farm-Style-Guide-Monochrome-Green.md` — single green hue (5 tonal steps) + one cream neutral, applied across all 9 pages (2026-08-13)
-- **Sacred Soil. Sacred Soul.** is now the October retreat (Oct 16&ndash;18, 2027) — the old generic "October Retreat" naming/copy was retired in favour of it, site-wide (nav, cards, offerings.html, retreats.html). March Retreat's date is now "TBC" (was "March 2027")
-- Enquire buttons site-wide now link into the homepage contact form with the specific offering pre-selected in the dropdown (`?interest=` param cross-page, direct JS same-page) — no more plain generic `#contact` links
-- Book/Enquire button styling is now consistently fill-vs-outline (Book = filled green, Enquire = outline) everywhere, per the style guide's CTA rule
-- New offerings added to the Enquire dropdown/offerings.html: **Gift Cards**; pricing added to Equine Assisted Therapy ($150), Reiki with the Herd ($180), Reiki with Anna ($80, Wellbeing Room)
-- Nav/footer logo standardised to the white PNG in a translucent dark pill (no circle) on all 9 pages — 5 pages were previously using an old JPEG logo in a cream circle
+Everything previously listed here (palette, nav structure, CTA rules, Sacred Soil naming, logo treatment, offering tables, Setmore/Formspree integration pattern) has been folded into CLAUDE.md as of 2026-08-13 and removed from this list — check there for the current locked rules. New decisions get logged here temporarily and moved over once genuinely final.
+- Practitioners page directory (names/specialties/contact) is real content, not a "rule" — see `practitioners.html` directly rather than duplicating it here.
 
 ## Notes
 Short, dated one-liners only — a sentence or two per entry, not paragraphs.
@@ -68,3 +51,4 @@ Short, dated one-liners only — a sentence or two per entry, not paragraphs.
 - 2026-07-23: Logo green confirmed as #57835E; all 9 pages updated. Headings site-wide set to YF green, font-weight 600, not italic. Nav logo → white on dark pill. Homepage dot-point features removed. Footer logo → white PNG no circle. Contact form: phone field added, "Get in Touch" label removed, Enquire buttons link to #contact. Btn hover colours updated.
 - 2026-08-13: Monochrome Green style guide rolled out to all 9 pages (colour vars + heading weight/no-two-tone + fill/outline button system). Nav/footer logo fixed on the 5 pages still using the old circle logo. Sacred Soil. Sacred Soul. retired the old "October Retreat" naming everywhere; March Retreat date set to TBC. Homepage: removed leftover 280×280 placeholder image, fixed a pre-existing curly-quote attribute bug that had silently broken the About heading/paragraph and Practitioners card styling, rewrote all 4 offer cards' copy, removed Studio Hours from the contact form, added Gift Cards + pricing to the Enquire dropdown, wired the contact form and Corporate Retreats form to Formspree (falls back to mailto until a real endpoint is pasted in). Built a sitewide `?interest=` pre-fill mechanism so every Enquire button deep-links to the right dropdown option. Book buttons for Setmore-eligible items wired with a placeholder `SETMORE_LINKS` object per page, ready for real URLs. Could not run the local screenshot QA workflow this session — no Node.js on this machine.
 - 2026-08-13 (later same session): Harvey provided real Setmore class links for Yin & Meditation with Anna, Fire Horse Sessions, Seasonal (Spring) Healing Sounds & Yin, and Sacred Soil — all wired into `offerings.html` / `retreat-october.html`. Added Sacred Soil pricing (Early Bird $1,850, $500 deposit) to the retreat page and offerings list. Formspree endpoint (`https://formspree.io/f/xwlebyjb`) wired into `index.html` and `corporate-retreats.html`, replacing the mailto fallback. Discussed hosting: recommended GitHub Pages over Hostinger since the site is fully static; domain cutover for yogafarm.com.au still pending confirmation of who manages its DNS.
+- 2026-08-13 (repo cleanup pass): Deleted stale untracked files — `CLAUDE-old-2.md`, `CLAUDE-old-3.md` (superseded CLAUDE.md drafts), `.playwright-cli/` (leftover session logs/screenshots from 2026-07-13). Moved everything genuinely locked-in from this file into CLAUDE.md (palette tokens, nav/logo rules, offering tables, CTA/Setmore/Formspree patterns) and trimmed the duplicated list here. Updated project memory to match. Attempted local visual QA via the Node-free `server.ps1` path found in memory — blocked by Constrained Language Mode in this session's PowerShell tool (see open item above); memory corrected to stop recommending that path from inside Claude Code. Per a follow-up request, dialled every page heading down from font-weight 700 to 600 (kept 700 only on non-heading elements like the footer wordmark and decorative numbers).

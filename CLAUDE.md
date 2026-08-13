@@ -73,8 +73,11 @@ This file holds locked-in rules only. For current build progress, open items, an
 
 ## Branding
 - Font: Quicksand, for both headings and body text
-- Primary accent colour: the green from the Yoga Farm logo — check `brand_assets/` for the exact file/hex; do not invent a green (unconfirmed — see STATUS.md)
-- Logo: check `brand_assets/`
+- **Colour palette: "Monochrome Green"** (locked) — one hue in five tonal steps plus one cream neutral, no second colour anywhere on the site. Full token values and usage table live in `Yoga-Farm-Style-Guide-Monochrome-Green.md`:
+  - `--yf-green-100: #EAF0E6` (palest — subtle washes) · `--yf-green-300: #A9C0A6` (borders/dividers) · `--yf-green-500: #57835E` (base — logo colour, buttons, links) · `--yf-green-700: #3C5B42` (headings) · `--yf-green-900: #23361F` (body text) · `--yf-cream: #F6F1E7` (page background)
+  - Headings: single flat colour (no two-tone `<em>` highlight spans), font-weight 600 for h1/h2 (bolder than body text, not as heavy as true bold)
+  - Buttons: **Book** = filled `--yf-green-500` with cream text; **Enquire** = outline `--yf-green-500`/transparent fill (cream outline instead of green when sitting over a dark photo/video background, for legibility)
+- Logo: `brand_assets/yoga farm 3217 logo white@3x.png`. Nav and footer both use the white PNG (never the green or old JPEG logo files) — nav sits inside a translucent dark pill (`rgba(15,22,15,0.4)`, `border-radius:10px`) for contrast against both the video hero and solid cream nav bars; footer logo sits plain, no circle.
 - Homepage hero tagline, directly under the logo: "Land. Breathe. Belong." — use letter-spacing between the three words
 
 ## Navigation bar
@@ -82,7 +85,7 @@ Six items only, in this order:
 1. About
 2. Healing with Horses
 3. Yoga & Events
-4. Retreats (dropdown: October Retreat / March Retreat / Corporate Retreats)
+4. Retreats (dropdown: Sacred Soil. Sacred Soul. / March Retreat / Corporate Retreats)
 5. Our Practitioners
 6. Contact
 
@@ -103,10 +106,10 @@ Six items only, in this order:
 
 | Card | Offerings inside | CTA button |
 |---|---|---|
-| Healing with Horses | Equine Assisted Therapy, Reiki with the Herd, Private Equine Assisted Therapy + Yin with Reiki | Enquire |
-| Yoga & Events | Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin, Summer Solstice Fire Horse Session, Monthly Equine Meditation | Book |
-| Retreats | October Retreat, March Retreat (deposit secures spot, balance invoiced manually). Include small text link: "Also available: corporate retreats →" | Book |
-| Our Practitioners | Simple bonus listing of room-rental practitioners — name, specialty, one line each — plus Reiki with Anna | Enquire |
+| Healing with Horses | Equine Assisted Therapy, Equine Assisted Reiki, plus a small link: "Enquire to create your own experience with the herd" | Enquire |
+| Yoga & Events | Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin, Equine Meditation Group (date TBC, not on Setmore yet) | Book |
+| Retreats | Sacred Soil. Sacred Soul. — 2 Night Women's Glamping Retreat (Oct 16–18, 2027), March Retreat (TBC). Small link: "Private Groups & Corporate Bookings Available" | Book |
+| Our Practitioners | One-paragraph summary of modalities on offer (Naturopathy, Osteopathy/Somatic Experiencing, Psychotherapy/Hypnotherapy, Energy Healing, Psychology/EMDR, Women's Health Massage + more) | Enquire |
 
 **4. Testimonials strip**
 - 3–4 hard-coded 5-star review cards (not a live widget) — star rating + "— Google review" attribution
@@ -120,23 +123,24 @@ Six items only, in this order:
 - Address, contact email (yogafarm3217@gmail.com), social links, "Reviews" link
 
 ## /offerings page
-Single flat list of all 11 offerings, each with name + CTA button. No separate photo required per row.
+Single flat list of offerings, each with name + CTA button. No separate photo required per row.
 
 | Offering | CTA |
 |---|---|
-| Equine Assisted Therapy | Enquire |
-| Reiki with the Herd | Enquire |
+| Equine Assisted Therapy — $150 | Enquire |
+| Reiki with the Herd — $180 | Enquire |
 | Private Equine Assisted Therapy + Yin with Reiki | Enquire |
+| Equine Meditation Group (date TBC, not on Setmore yet) | Enquire |
+| Gift Cards (for an amount or a specific experience) | Enquire |
 | Yin Yoga & Meditation | Book |
 | Monthly Fire Horse Sessions | Book |
 | Seasonal Healing Sounds with Yin | Book |
 | Summer Solstice Fire Horse Session | Book |
-| Monthly Equine Meditation | Book |
-| October Retreat | Book |
-| March Retreat | Book |
+| Sacred Soil. Sacred Soul. (Oct 16–18, 2027) | Book |
+| March Retreat (dates TBC) | Book |
 | Corporate Retreats | Enquire |
 | Our Practitioners (room rentals) | Enquire |
-| Reiki with Anna | Enquire |
+| Reiki with Anna — $80 (Wellbeing Room) | Enquire |
 
 - Homepage hero's "Book" button links to this page filtered/scrolled to Book items
 - Homepage hero's "Enquire" button links to this page filtered/scrolled to Enquire items
@@ -147,17 +151,21 @@ Single flat list of all 11 offerings, each with name + CTA button. No separate p
 - Book = payment required now, full or deposit
 - Enquire = conversation first, no payment upfront
 - Do not introduce any other CTA wording anywhere on the site
+- Styling is consistent everywhere: **Book** = filled `--yf-green-500` button; **Enquire** = outline button, never filled. Keep the two visually distinct by fill vs. outline, not by colour.
+- Every Enquire button/link site-wide deep-links into the homepage contact form with its offering pre-selected in the "I'm interested in" dropdown — same-page links (homepage cards) set it via the `setInterest()` JS helper, cross-page links use `index.html?interest=<offering name>#contact`. When adding a new Enquire CTA anywhere, follow this pattern rather than a plain `#contact` link.
 
 ## Booking & payment
-- Current system is Setmore, under review for replacement — do not deeply integrate Setmore-specific code
-- Build the "Book" flow as an isolated, clearly separated button/embed section so it can be redirected to a different platform later without rebuilding
-- "Enquire" flows (including Corporate Retreats) submit to a simple contact form that emails **yogafarm3217@gmail.com**
+- **Setmore confirmed** as the booking system (decision made 2026-08-13; may be revisited for Supabase/Hostinger-based alternatives down the road, but not an active project right now).
+- The "Book" flow stays isolated and clearly separated per page: each page with Setmore-eligible items defines its own `SETMORE_LINKS` JS object (e.g. in `offerings.html`, `retreat-october.html`, `retreat-march.html`) mapping an item key to its Setmore class URL. A `bookNow(key, event)` helper opens the Setmore link in a new tab if one is set, otherwise falls through to the item's Enquire-flow href. This keeps swapping booking platforms later a one-object edit, not a rebuild.
+- Items not yet on Setmore (e.g. Equine Meditation Group) route to Enquire instead of Book until they're added.
+- "Enquire" flows (including Corporate Retreats) submit via **Formspree** (no `mailto:`/email-client popup) — see STATUS.md for the live endpoint. Falls back to `mailto:` automatically if `FORMSPREE_ENDPOINT` is ever unset.
 - Each Enquire form must set a specific email subject line naming the offering, e.g. "Website Enquiry: Equine Assisted Therapy", "Website Enquiry: Corporate Retreats"
 
-## Retreat pages (October Retreat, March Retreat)
+## Retreat pages (Sacred Soil. Sacred Soul. at `retreat-october.html`, March Retreat at `retreat-march.html`)
 - Hero photo, dates, short paragraph, what's included
-- Book button for deposit payment
+- Book button for deposit payment, wired to Setmore per the Booking & payment rules above
 - Text near the button: "Deposit secures your spot; balance invoiced separately closer to the date"
+- Sacred Soil. Sacred Soul. pricing: Early Bird $1,850, $500 deposit secures a spot — display this near the Book button
 
 ## Corporate Retreats page
 - Enquire form fields: Name, Company Name, Phone Number, Email, Number of Guests
