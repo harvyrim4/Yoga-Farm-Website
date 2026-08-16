@@ -106,7 +106,7 @@ Six items only, in this order:
 
 | Card | Offerings inside | CTA button |
 |---|---|---|
-| Healing with Horses | Equine Assisted Therapy, Equine Assisted Reiki, plus a small link: "Enquire to create your own experience with the herd" | Enquire |
+| Healing with Horses | Equine Assisted Therapy, Equine Assisted Reiki Healing, plus a small link: "Enquire to create your own experience with the herd" | Enquire |
 | Yoga & Events | Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin, Equine Meditation Group (date TBC, not on Setmore yet) | Book |
 | Retreats | Sacred Soil. Sacred Soul. — 2 Night Women's Glamping Retreat (Oct 16–18, 2027), March Retreat (TBC). Small link: "Private Groups & Corporate Bookings Available" | Book |
 | Our Practitioners | One-paragraph summary of modalities on offer (Naturopathy, Osteopathy/Somatic Experiencing, Psychotherapy/Hypnotherapy, Energy Healing, Psychology/EMDR, Women's Health Massage + more) | Enquire |
@@ -127,14 +127,15 @@ Single flat list of offerings, each with name + CTA button. No separate photo re
 
 | Offering | CTA |
 |---|---|
-| Equine Assisted Therapy — $150 | Enquire |
-| Reiki with the Herd — $180 | Enquire |
-| Private Equine Assisted Therapy + Yin with Reiki | Enquire |
+| Equine Assisted Therapy — $150 (60 min, one-on-one) | Enquire |
+| Equine Assisted Reiki Healing — $250 (75 min, one-on-one) | Enquire |
+| Equine Assisted Therapy + Private Yin Yoga — $300 (2¼ hrs, one-on-one) | Enquire |
+| Private Yin Yoga with Reiki — $200 (90 min, one-on-one) | Enquire |
 | Equine Meditation Group (date TBC, not on Setmore yet) | Enquire |
 | Gift Cards (for an amount or a specific experience) | Enquire |
 | Yin Yoga & Meditation | Book |
-| Monthly Fire Horse Sessions | Book |
-| Seasonal Healing Sounds with Yin | Book |
+| Monthly Fire Horse Sessions — $80 (2.5 hrs, group, last Sunday of the month) | Book |
+| Seasonal Healing Sounds with Yin — $40 (1.5 hrs, group, quarterly) | Book |
 | Summer Solstice Fire Horse Session | Book |
 | Sacred Soil. Sacred Soul. (Oct 16–18, 2027) | Book |
 | March Retreat (dates TBC) | Book |

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy &mdash; Yoga Farm 3217</title>
+  <meta name="description" content="Yoga Farm 3217's privacy policy &mdash; how we collect, use and protect your personal information under the Australian Privacy Principles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Monochrome Green palette — see Yoga-Farm-Style-Guide-Monochrome-Green.md */
+      --yf-green-100: #EAF0E6; --yf-green-300: #A9C0A6; --yf-green-500: #57835E;
+      --yf-green-700: #3C5B42; --yf-green-900: #23361F; --yf-cream: #F6F1E7;
+      --sage: var(--yf-green-500); --sage-light: var(--yf-green-300); --sage-pale: var(--yf-green-100); --sage-dark: var(--yf-green-700);
+      --terra: var(--yf-green-500); --cream: var(--yf-cream); --cream-warm: var(--yf-green-100);
+      --earth: var(--yf-green-900); --earth-mid: var(--yf-green-700); --gold: var(--yf-green-300); --gold-light: var(--yf-cream);
+      --ff-display: 'Quicksand', system-ui, sans-serif; --ff-body: 'Quicksand', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ff-body); background: var(--cream); color: var(--earth); overflow-x: hidden; line-height: 1.7; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: var(--sage-dark); transition: color 0.2s; }
+    a:hover { color: var(--yf-green-900); }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    body::after {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 18px 48px; background: rgba(244,237,224,0.94); backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(92,74,56,0.1), 0 8px 32px rgba(30,23,16,0.06); display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; background: rgba(15,22,15,0.4); border-radius: 10px; padding: 5px 10px; }
+    .nav-logo-img { height: 44px; width: auto; object-fit: contain; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.8rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--earth-mid); position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.3s; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-drop { position: relative; }
+    .nav-drop > a { display: flex; align-items: center; gap: 5px; }
+    .nav-drop > a::after { content: ''; display: block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.6; margin-top: 1px; }
+    .drop-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: rgba(244,237,224,0.97); border: 1px solid rgba(92,74,56,0.12); border-radius: 14px; padding: 8px; min-width: 200px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; }
+    .nav-drop:hover .drop-menu { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .drop-menu a { display: block; padding: 10px 14px; border-radius: 8px; font-size: 0.8rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--earth-mid); transition: background 0.2s, color 0.2s; }
+    .drop-menu a:hover { background: var(--sage-pale); color: var(--sage-dark); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--earth); }
+
+    .mob-nav { display: none; position: fixed; inset: 0; background: var(--earth); z-index: 199; flex-direction: column; align-items: center; justify-content: center; gap: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .mob-nav.open { display: flex; opacity: 1; pointer-events: all; }
+    .mob-nav a { font-family: var(--ff-display); font-size: 2.5rem; color: var(--cream); font-weight: 300; }
+    .mob-close { position: absolute; top: 24px; right: 48px; font-size: 1.5rem; color: var(--cream); opacity: 0.5; cursor: pointer; }
+
+    /* PAGE HERO */
+    .page-hero { padding: 140px 48px 64px; background: var(--earth); text-align: center; }
+    .page-hero .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .page-hero .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
+    .page-hero h1 { font-family: var(--ff-display); font-size: clamp(2.2rem,4.5vw,3.4rem); font-weight: 600; color: var(--cream); letter-spacing: -0.02em; line-height: 1.1; }
+    .page-hero p { margin-top: 14px; font-size: 0.9375rem; color: rgba(244,237,224,0.55); }
+
+    /* CONTENT */
+    .policy-content { max-width: 760px; margin: 0 auto; padding: 72px 48px 96px; }
+    .policy-content h2 { font-family: var(--ff-display); font-size: 1.375rem; font-weight: 600; letter-spacing: -0.01em; color: var(--yf-green-700); margin: 44px 0 14px; }
+    .policy-content h2:first-child { margin-top: 0; }
+    .policy-content p { font-size: 0.975rem; color: var(--earth-mid); margin-bottom: 16px; }
+    .policy-content ul { margin: 0 0 16px 22px; }
+    .policy-content li { font-size: 0.975rem; color: var(--earth-mid); margin-bottom: 8px; }
+    .policy-content em { font-style: italic; color: var(--sage-dark); }
+    .policy-meta { font-size: 0.8rem; color: var(--earth-mid); opacity: 0.65; margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(92,74,56,0.14); }
+
+    /* FOOTER */
+    .footer { background: rgba(12,8,4,1); padding: 64px 0 32px; }
+    .foot-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .foot-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 28px; }
+    .foot-left { display: flex; flex-direction: column; gap: 20px; }
+    .foot-addr { font-style: normal; font-size: 0.9rem; color: rgba(244,237,224,.5); line-height: 1.7; }
+    .foot-addr a { color: rgba(244,237,224,.5); }
+    .foot-addr a:hover { color: var(--cream); }
+    .foot-right { padding-top: 4px; }
+    .foot-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .foot-brand img { height: 56px; width: auto; object-fit: contain; }
+    .foot-brand-text { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--cream); line-height: 1.2; }
+    .foot-brand-sub { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(244,237,224,0.4); text-transform: uppercase; }
+    .foot-social { display: flex; gap: 10px; }
+    .foot-soc { width: 34px; height: 34px; border-radius: 10px; border: 1px solid rgba(244,237,224,.1); display: flex; align-items: center; justify-content: center; color: rgba(244,237,224,.45); transition: border-color 0.3s, color 0.3s, background 0.3s; }
+    .foot-soc:hover { border-color: var(--sage); color: var(--sage-light); background: rgba(124,158,127,.1); }
+    .foot-col-title { font-size: 0.65rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(244,237,224,.35); margin-bottom: 18px; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .foot-links a { font-size: 0.875rem; color: rgba(244,237,224,.5); transition: color 0.3s; }
+    .foot-links a:hover { color: var(--cream); }
+    .foot-btm { display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-size: 0.8rem; color: rgba(244,237,224,.28); }
+
+    @media(max-width:768px) {
+      .nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 120px 24px 48px; }
+      .policy-content { padding: 56px 24px 72px; }
+      .foot-2col { grid-template-columns: 1fr; }
+      .foot-inner { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Mobile Nav -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose">&#x2715;</button>
+  <a href="index.html#about" onclick="closeMob()">About</a>
+  <a href="healing-with-horses.html" onclick="closeMob()">Healing with Horses</a>
+  <a href="yoga-events.html" onclick="closeMob()">Yoga &amp; Events</a>
+  <a href="retreats.html" onclick="closeMob()">Retreats</a>
+  <a href="practitioners.html" onclick="closeMob()">Our Practitioners</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="./brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="healing-with-horses.html">Healing with Horses</a></li>
+    <li><a href="yoga-events.html">Yoga &amp; Events</a></li>
+    <li class="nav-drop">
+      <a href="retreats.html">Retreats</a>
+      <div class="drop-menu">
+        <a href="retreat-october.html">Sacred Soil. Sacred Soul.</a>
+        <a href="retreat-march.html">March Retreat</a>
+        <a href="corporate-retreats.html">Corporate Retreats</a>
+      </div>
+    </li>
+    <li><a href="practitioners.html">Our Practitioners</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="sec-label">Yoga Farm 3217</div>
+  <h1>Privacy Policy</h1>
+  <p>How we collect, use and protect your personal information</p>
+</section>
+
+<!-- Content -->
+<div class="policy-content">
+  <p><strong>Yoga Farm 3217</strong> respects your privacy and the confidentiality of the information you share with us. We are committed to handling personal information in accordance with the <strong>Australian Privacy Principles (APPs)</strong> contained in the <em>Privacy Act 1988</em> (Cth). Please read this policy carefully.</p>
+
+  <h2>Collection of Personal Information</h2>
+  <p>Yoga Farm 3217 collects and stores personal information you provide through our website or in other forms, including basic contact details such as your name, phone number, address and email address, so that we can send information, provide updates, or process a booking.</p>
+  <p>We may also collect additional information when you provide feedback, respond to a survey, communicate with us about a class, retreat or treatment, or complete a booking or waiver form &mdash; for example, relevant health, injury or medical information you choose to share with us so that our practitioners and facilitators can offer you a safe and appropriate experience. This kind of information is treated as <strong>sensitive information</strong> under the Privacy Act and is only collected with your consent, and only where it is reasonably necessary for the service you've booked.</p>
+  <p>You may update your details at any time by contacting us in writing via email.</p>
+
+  <h2>How We Use Your Information</h2>
+  <p>We use the personal information you provide to:</p>
+  <ul>
+    <li>process and confirm bookings, payments and enquiries</li>
+    <li>communicate with you about classes, retreats, workshops and events</li>
+    <li>tailor a session or retreat appropriately to your physical, mental or emotional circumstances, where you've chosen to share that information</li>
+    <li>send you updates and offers, where you've agreed to receive them</li>
+    <li>improve our website and services</li>
+  </ul>
+  <p>We do not use your information for any purpose beyond what's described in this policy without asking you first.</p>
+
+  <h2>Storage and Security of Personal Information</h2>
+  <p>Yoga Farm 3217 takes reasonable steps to protect the personal information we hold from misuse, loss, and unauthorised access, modification or disclosure. Information submitted through our website is encrypted in transit, and access to stored information is limited to those who need it to run the business. Credit card information is not stored on our servers &mdash; payments are processed securely through our booking and payment providers.</p>
+
+  <h2>Third Parties and Overseas Disclosure</h2>
+  <p>Yoga Farm 3217 does not sell or trade your personal information. We share personal information only with trusted service providers who help us run our business, including:</p>
+  <ul>
+    <li><strong>Setmore</strong> (booking and scheduling)</li>
+    <li><strong>Mailchimp</strong> (email newsletters)</li>
+    <li><strong>Formspree</strong> (website contact forms)</li>
+  </ul>
+  <p>Some of these providers store or process data on servers located outside Australia (including the United States). Where this occurs, we take reasonable steps to ensure your information is handled consistently with the Australian Privacy Principles, though privacy laws in other countries may differ from Australia's.</p>
+  <p>We may also use de-identified information &mdash; with no reference to your name &mdash; to understand demand for our offerings and improve our services generally.</p>
+
+  <h2>Photos and Testimonials</h2>
+  <p>From time to time we may photograph or film classes, retreats and events for use in our marketing, website and social media. We will ask for your consent before using any photo, video or testimonial that identifies you. If you'd prefer not to be included, just let a member of our team know on the day, or email us at any time to have existing marketing material removed.</p>
+
+  <h2>Email Communication</h2>
+  <p>We may use your email address to send you updates about Yoga Farm, and occasionally to let you know about new offerings. This is free, and always optional. You can unsubscribe at any time using the link in any email, or by contacting us directly &mdash; we'll action your request promptly, in line with the <em>Spam Act 2003</em> (Cth).</p>
+
+  <h2>Data Retention</h2>
+  <p>We keep personal information only for as long as it's needed for the purpose it was collected &mdash; generally, for the duration of our relationship with you plus a period required for tax, insurance or legal record-keeping purposes. After that, information is securely deleted or de-identified.</p>
+
+  <h2>Access, Correction and Complaints</h2>
+  <p>You have the right to ask what personal information we hold about you, and to request that it be corrected if it's wrong. To do this, email us at <a href="mailto:yogafarm3217@gmail.com">yogafarm3217@gmail.com</a>.</p>
+  <p>If you have a concern about how we've handled your personal information, please contact us first so we can try to resolve it. If you're not satisfied with our response, you can lodge a complaint with the <strong>Office of the Australian Information Commissioner (OAIC)</strong> at <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a>.</p>
+
+  <h2>Data Breaches</h2>
+  <p>In the unlikely event of a data breach that is likely to result in serious harm, we will notify affected individuals and the OAIC in accordance with the Notifiable Data Breaches scheme under the Privacy Act.</p>
+
+  <h2>Links to Other Websites</h2>
+  <p>Our website may contain links to other sites for your convenience. These links do not imply our endorsement, and we are not responsible for the privacy practices of any external website. We encourage you to read the privacy policy of any site that collects your personal information. This policy applies only to information collected by Yoga Farm 3217.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>This policy may be updated from time to time to reflect changes in our practices or the law. Updates take effect as soon as they're posted on this page. Please check back periodically.</p>
+
+  <h2>Contact Us</h2>
+  <p>150 McCanns Road, Mount Duneed<br>
+  Phone: <a href="tel:0414283295">0414 283 295</a><br>
+  Email: <a href="mailto:yogafarm3217@gmail.com">yogafarm3217@gmail.com</a></p>
+
+  <div class="policy-meta">Copyright &copy; <span id="copy-year">2026</span> Yoga Farm 3217</div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="foot-inner">
+    <div class="foot-2col">
+      <div class="foot-left">
+        <div class="foot-brand">
+          <img src="./brand_assets/yoga farm 3217 logo white@3x.png" alt="Yoga Farm 3217">
+          <div>
+            <div class="foot-brand-text">Yoga Farm 3217</div>
+            <div class="foot-brand-sub">Surf Coast, Victoria</div>
+          </div>
+        </div>
+        <address class="foot-addr">
+          Mt Duneed, VIC 3217<br>
+          <a href="mailto:yogafarm3217@gmail.com">yogafarm3217@gmail.com</a>
+        </address>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/yogafarm3217/" class="foot-soc" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/YogaFarm3217/" class="foot-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col-title">Navigate</div>
+        <ul class="foot-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="healing-with-horses.html">Healing with Horses</a></li>
+          <li><a href="yoga-events.html">Yoga &amp; Events</a></li>
+          <li><a href="retreats.html">Retreats</a></li>
+          <li><a href="practitioners.html">Our Practitioners</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <span class="foot-copy">&copy; <span id="copy-year">2026</span> Yoga Farm 3217. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobNav = document.getElementById('mobNav');
+const mobClose = document.getElementById('mobClose');
+function closeMob() { mobNav.classList.remove('open'); }
+hamburger.addEventListener('click', () => mobNav.classList.add('open'));
+mobClose.addEventListener('click', closeMob);
+</script>
+
+<script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
