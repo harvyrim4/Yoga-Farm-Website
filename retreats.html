@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -86,7 +86,7 @@
     .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--yf-green-700); margin-bottom: 16px; }
     .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
     .sec-title { font-family: var(--ff); font-size: clamp(2.1rem,3.8vw,3.4rem); font-weight: 600; line-height: 1.14; letter-spacing: -0.02em; color: var(--yf-green-700); }
-    .sec-title em { font-style: normal; font-weight: inherit; color: inherit; }
+    .sec-title em { font-style: normal; font-weight: 400; color: var(--yf-green-500); }
     h1, h2, h3, h4, h5, h6 { font-style: normal; }
 
     /* PAGE HERO */
@@ -140,7 +140,7 @@
     .corp-feat-desc { font-size: 0.82rem; color: rgba(244,237,224,0.48); line-height: 1.6; }
 
     /* FOOTER */
-    .footer { background: rgba(12,8,4,1); padding: 64px 0 32px; }
+    .footer { background: var(--yf-green-900); padding: 64px 0 32px; }
     .foot-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
     .foot-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 28px; }
     .foot-left { display: flex; flex-direction: column; gap: 20px; }
@@ -228,8 +228,9 @@
 <section class="intro-band">
   <div class="intro-inner">
     <div class="sec-label rev" style="justify-content:center;">About Retreats</div>
-    <h2 class="sec-title rev d1" style="text-align:center;">More Than <em>a Weekend Away</em></h2>
-    <p class="intro-body rev d2">A retreat does what a single class cannot &mdash; it gives your nervous system time to genuinely unwind. We keep numbers small and the pace intentional. What's included varies by retreat, but each one has the same quality at its centre: space to actually arrive.</p>
+    <h2 class="sec-title rev d1" style="text-align:center;"><em>More</em> Than a Weekend Away</h2>
+    <p class="intro-body rev d2">A retreat here isn&rsquo;t a holiday from your life &mdash; it&rsquo;s an investment in how you meet it. We&rsquo;ve built these days around one honest goal: giving your nervous system enough time and enough safety to genuinely settle, not just perform relaxation for forty-eight hours and snap back on the drive home.</p>
+    <p class="intro-body rev d3" style="margin-top:16px;">That takes more than a nice view, so we&rsquo;ve curated retreats combining horses, land, silence, stillness, movement, connection, good food, and experienced practitioners who know exactly what they&rsquo;re doing. We&rsquo;ve spent eleven years improving and regenerating this land, and it&rsquo;s ready for you to enjoy.</p>
   </div>
 </section>
 
@@ -241,9 +242,13 @@
         <img src="./brand_assets/retreatplacecard.jpg" alt="Sacred Soil. Sacred Soul. women's glamping retreat at Yoga Farm 3217, Surf Coast Victoria">
       </div>
       <div class="retreat-card-body">
-        <span class="retreat-tag">Women&rsquo;s Retreat &middot; October 16&ndash;18, 2027</span>
+        <span class="retreat-tag">Women&rsquo;s Retreat &middot; October 16&ndash;18, 2026</span>
         <h2 class="retreat-title">Sacred Soil. <em>Sacred Soul.</em></h2>
-        <p class="retreat-desc">A 2-night women&rsquo;s glamping retreat as the land wakes into spring &mdash; one of the most beautiful times to be at the Farm. Yin yoga, ceremony, sound, and long shared meals under the stars with the herd nearby.</p>
+        <p class="retreat-desc" style="margin-bottom:8px;">Two nights, under canvas, by firelight, surrounded by nature, with other women who get it.</p>
+        <p class="retreat-desc" style="margin-bottom:8px;">A collaboration of unique healing modalities to redirect all of your energy back to yourself.</p>
+        <p class="retreat-desc" style="margin-bottom:8px;">Sacred Soil is the land beneath us. Sacred Soul is You &mdash; the You beneath the roles, responsibilities, and the noise.</p>
+        <p class="retreat-desc" style="margin-bottom:8px;">This weekend is all about You.</p>
+        <p class="retreat-desc">You&rsquo;ll learn and unlearn, and go home different.</p>
         <ul class="retreat-includes">
           <li>Daily Yin yoga and meditation</li>
           <li>Equine session with the herd</li>
@@ -268,7 +273,7 @@
       <div class="retreat-card-body">
         <span class="retreat-tag">Annual &middot; Autumn &middot; Dates TBC</span>
         <h2 class="retreat-title">March Retreat</h2>
-        <p class="retreat-desc">An autumn immersion as the season turns &mdash; cooler evenings, softer light, and a quieter energy on the land. A deeply restorative few days. Dates for the next March Retreat are still being confirmed &mdash; enquire to be notified first.</p>
+        <p class="retreat-desc">Details to be announced. Something is taking shape for March &mdash; we&rsquo;re letting it form properly before we say too much. If you&rsquo;d like to be first to know when it opens, we&rsquo;d love to have you on the list.</p>
         <ul class="retreat-includes">
           <li>Daily Yin yoga and restorative practices</li>
           <li>Time with the herd in the paddock</li>
@@ -294,7 +299,7 @@
     <div class="rev">
       <div class="corporate-label">For Teams</div>
       <h2 class="corporate-title">Corporate <em>Retreats</em></h2>
-      <p class="corporate-desc" style="margin-bottom:28px;">Bring your team to the Farm for a day or half-day of reconnection. Yoga, equine sessions, sound healing, and the space to remember what actually matters. Tailored to your group's needs.</p>
+      <p class="corporate-desc" style="margin-bottom:28px;">Bring your team somewhere they can actually be a team, and uncover each other with a shared quiet, shared presence, and time with horses that read a room faster than any facilitator can. We customise half-day, full-day, and overnight retreats for groups of up to fourteen, built around your team&rsquo;s real needs rather than a generic template. It&rsquo;s a genuinely different kind of offsite &mdash; one that tends to the nervous system first, and lets the connection follow naturally from there.</p>
       <a href="corporate-retreats.html" class="btn-outline-dark">
         Enquire About Corporate Retreats
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -74,6 +74,7 @@
     .page-hero .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .page-hero .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
     .page-hero h1 { font-family: var(--ff-display); font-size: clamp(2.2rem,4.5vw,3.4rem); font-weight: 600; color: var(--cream); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+    .page-hero h1 em { font-style: normal; font-weight: 400; color: var(--yf-green-300); }
     .rating-badge { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; }
     .rating-badge .excellent { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,237,224,0.6); }
     .rating-badge .stars { color: var(--gold); font-size: 1.4rem; letter-spacing: 4px; }
@@ -98,7 +99,7 @@
     .testi-all-link:hover { color: var(--yf-green-900); }
 
     /* FOOTER */
-    .footer { background: rgba(12,8,4,1); padding: 64px 0 32px; }
+    .footer { background: var(--yf-green-900); padding: 64px 0 32px; }
     .foot-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
     .foot-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 28px; }
     .foot-left { display: flex; flex-direction: column; gap: 20px; }
@@ -177,7 +178,7 @@
 <!-- Page Hero -->
 <section class="page-hero">
   <div class="sec-label">Stories from the Farm</div>
-  <h1>What <em style="font-style:normal;">People Say</em></h1>
+  <h1><em>What</em> People Say</h1>
   <div class="rating-badge">
     <div class="excellent">Excellent</div>
     <div class="stars">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>

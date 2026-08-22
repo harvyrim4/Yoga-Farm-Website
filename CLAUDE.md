@@ -75,7 +75,7 @@ This file holds locked-in rules only. For current build progress, open items, an
 - Font: Quicksand, for both headings and body text
 - **Colour palette: "Monochrome Green"** (locked) — one hue in five tonal steps plus one cream neutral, no second colour anywhere on the site. Full token values and usage table live in `Yoga-Farm-Style-Guide-Monochrome-Green.md`:
   - `--yf-green-100: #EAF0E6` (palest — subtle washes) · `--yf-green-300: #A9C0A6` (borders/dividers) · `--yf-green-500: #57835E` (base — logo colour, buttons, links) · `--yf-green-700: #3C5B42` (headings) · `--yf-green-900: #23361F` (body text) · `--yf-cream: #F6F1E7` (page background)
-  - Headings: single flat colour (no two-tone `<em>` highlight spans), font-weight 600 for h1/h2 (bolder than body text, not as heavy as true bold)
+  - Headings: two-tone treatment on section-level h1/h2 (`.sec-title`, and `h1` on solid-colour page heroes) — the first word wraps in `<em>`, rendered lighter in both shade (`--yf-green-500` on light backgrounds, `--yf-green-300` on dark) and weight (400) than the rest of the heading, which stays `--yf-green-700`/cream at font-weight 600. Skip this on: the homepage hero tagline ("Land. Breathe. Belong."), any h1 sitting over a photo/video hero (contrast risk — keep flat cream), and card-level titles (offer/event/retreat/corporate-title, practitioner names).
   - Buttons: **Book** = filled `--yf-green-500` with cream text; **Enquire** = outline `--yf-green-500`/transparent fill (cream outline instead of green when sitting over a dark photo/video background, for legibility)
 - Logo: `brand_assets/yoga farm 3217 logo white@3x.png`. Nav and footer both use the white PNG (never the green or old JPEG logo files) — nav sits inside a translucent dark pill (`rgba(15,22,15,0.4)`, `border-radius:10px`) for contrast against both the video hero and solid cream nav bars; footer logo sits plain, no circle.
 - Homepage hero tagline, directly under the logo: "Land. Breathe. Belong." — use letter-spacing between the three words
@@ -108,7 +108,7 @@ Six items only, in this order:
 |---|---|---|
 | Healing with Horses | Equine Assisted Therapy, Equine Assisted Reiki Healing, plus a small link: "Enquire to create your own experience with the herd" | Enquire |
 | Yoga & Events | Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin, Equine Meditation Group (date TBC, not on Setmore yet) | Book |
-| Retreats | Sacred Soil. Sacred Soul. — 2 Night Women's Glamping Retreat (Oct 16–18, 2027), March Retreat (TBC). Small link: "Private Groups & Corporate Bookings Available" | Book |
+| Retreats | Sacred Soil. Sacred Soul. — 2 Night Women's Glamping Retreat (Oct 16–18, 2026), March Retreat (TBC). Small link: "Private Groups & Corporate Bookings Available" | Book |
 | Our Practitioners | One-paragraph summary of modalities on offer (Naturopathy, Osteopathy/Somatic Experiencing, Psychotherapy/Hypnotherapy, Energy Healing, Psychology/EMDR, Women's Health Massage + more) | Enquire |
 
 **4. Testimonials strip**
@@ -137,7 +137,7 @@ Single flat list of offerings, each with name + CTA button. No separate photo re
 | Monthly Fire Horse Sessions — $80 (2.5 hrs, group, last Sunday of the month) | Book |
 | Seasonal Healing Sounds with Yin — $40 (1.5 hrs, group, quarterly) | Book |
 | Summer Solstice Fire Horse Session | Book |
-| Sacred Soil. Sacred Soul. (Oct 16–18, 2027) | Book |
+| Sacred Soil. Sacred Soul. (Oct 16–18, 2026) | Book |
 | March Retreat (dates TBC) | Book |
 | Corporate Retreats | Enquire |
 | Our Practitioners (room rentals) | Enquire |

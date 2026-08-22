@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -83,7 +83,7 @@
     .sec-label { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--yf-green-700); margin-bottom: 16px; }
     .sec-label::before { content: ''; display: block; height: 1px; width: 30px; background: currentColor; }
     .sec-title { font-family: var(--ff); font-size: clamp(2.1rem,3.8vw,3.4rem); font-weight: 600; line-height: 1.14; letter-spacing: -0.02em; color: var(--yf-green-700); }
-    .sec-title em { font-style: normal; font-weight: inherit; color: inherit; }
+    .sec-title em { font-style: normal; font-weight: 400; color: var(--yf-green-500); }
     h1, h2, h3, h4, h5, h6 { font-style: normal; }
 
     /* PAGE HERO */
@@ -123,11 +123,11 @@
     .cta-inner { max-width: 620px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
     .cta-band .sec-label { justify-content: center; color: var(--gold); }
     .cta-band .sec-title { color: var(--cream); margin-bottom: 16px; }
-    .cta-band .sec-title em { color: var(--gold-light); }
+    .cta-band .sec-title em { color: var(--gold-light); font-weight: 400; }
     .cta-sub { font-size: 1rem; font-weight: 300; color: rgba(244,237,224,0.62); line-height: 1.8; margin-bottom: 36px; }
 
     /* FOOTER */
-    .footer { background: rgba(12,8,4,1); padding: 64px 0 32px; }
+    .footer { background: var(--yf-green-900); padding: 64px 0 32px; }
     .foot-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
     .foot-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 28px; }
     .foot-left { display: flex; flex-direction: column; gap: 20px; }
