@@ -92,6 +92,8 @@
     .book-block p { font-size: 0.9375rem; color: var(--earth-mid); margin: 0; max-width: 440px; }
     .btn-fill { display: inline-flex; align-items: center; gap: 9px; padding: 15px 36px; background: var(--terra); color: var(--cream); border-radius: 999px; font-size: 0.9375rem; font-weight: 600; letter-spacing: 0.04em; transition: background 0.3s, transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 24px rgba(60,122,62,0.3); }
     .btn-fill:hover { background: var(--yf-green-700); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(60,122,62,0.42); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 9px; padding: 13px 34px; background: transparent; color: var(--yf-green-700); border: 1.5px solid var(--yf-green-500); border-radius: 999px; font-size: 0.9375rem; font-weight: 600; letter-spacing: 0.04em; transition: background 0.3s, transform 0.2s; }
+    .btn-outline:hover { background: var(--yf-green-100); transform: translateY(-2px); }
     .deposit-note { font-size: 0.8rem; color: var(--earth-mid); opacity: 0.7; font-style: italic; }
 
     /* FOOTER */
@@ -105,10 +107,10 @@
     .foot-right { padding-top: 4px; }
     .foot-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
     .foot-brand img { height: 56px; width: auto; object-fit: contain; }
-    .foot-brand-text { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--cream); line-height: 1.2; }
+    .foot-brand-text { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 600; color: var(--cream); line-height: 1.2; }
     .foot-brand-sub { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(244,237,224,0.4); text-transform: uppercase; }
     .foot-social { display: flex; gap: 10px; }
-    .foot-soc { width: 34px; height: 34px; border-radius: 10px; border: 1px solid rgba(244,237,224,.1); display: flex; align-items: center; justify-content: center; color: rgba(244,237,224,.45); transition: border-color 0.3s, color 0.3s, background 0.3s; }
+    .foot-soc { width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(244,237,224,.1); display: flex; align-items: center; justify-content: center; color: rgba(244,237,224,.45); transition: border-color 0.3s, color 0.3s, background 0.3s; }
     .foot-soc:hover { border-color: var(--sage); color: var(--sage-light); background: rgba(124,158,127,.1); }
     .foot-col-title { font-size: 0.65rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(244,237,224,.35); margin-bottom: 18px; }
     .foot-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
@@ -176,7 +178,7 @@
   <div class="page-hero-content">
     <div class="sec-label">Retreats</div>
     <div class="dates">Dates TBC</div>
-    <h1>March <em>Retreat</em></h1>
+    <h1>March <em>retreat</em></h1>
   </div>
 </section>
 
@@ -198,12 +200,10 @@
   </ul>
 
   <div class="book-block rev d2">
-    <div class="sec-label" style="justify-content:center;">Secure Your Spot</div>
-    <a href="index.html?interest=March+Retreat#contact" class="btn-fill" onclick="return bookNow('marchRetreat', event)">
-      Book Now
+    <a href="index.html?interest=March+Retreat#contact" class="btn-outline">
+      Enquire
       <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <p class="deposit-note">Deposit secures your spot; balance invoiced separately closer to the date.</p>
   </div>
 </div>
 
@@ -220,12 +220,12 @@
           </div>
         </div>
         <address class="foot-addr">
-          Mt Duneed, VIC 3217<br>
+          150 McCanns Road, Mt Duneed, VIC 3217<br>
           <a href="mailto:yogafarm3217@gmail.com">yogafarm3217@gmail.com</a>
         </address>
         <div class="foot-social">
-          <a href="https://www.instagram.com/yogafarm3217/" class="foot-soc" aria-label="Instagram" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/YogaFarm3217/" class="foot-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/yogafarm3217/" class="foot-soc" aria-label="Instagram" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/YogaFarm3217/" class="foot-soc" aria-label="Facebook" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
         </div>
       </div>
       <div class="foot-right">
@@ -259,15 +259,6 @@ const mobNav = document.getElementById('mobNav');
 const mobClose = document.getElementById('mobClose');
 hamburger.addEventListener('click', () => mobNav.classList.add('open'));
 mobClose.addEventListener('click', () => mobNav.classList.remove('open'));
-
-// Paste the real Setmore deposit-booking URL here once created.
-// Until it's set, the button falls back to the pre-filled Enquire form.
-const SETMORE_LINKS = { marchRetreat: '' };
-function bookNow(key, e) {
-  const url = SETMORE_LINKS[key];
-  if (url) { e.preventDefault(); window.open(url, '_blank', 'noopener'); }
-  return true;
-}
 </script>
 
 <script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>

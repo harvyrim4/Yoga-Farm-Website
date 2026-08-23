@@ -106,7 +106,7 @@ Six items only, in this order:
 
 | Card | Offerings inside | CTA button |
 |---|---|---|
-| Healing with Horses | Equine Assisted Therapy, Equine Assisted Reiki Healing, plus a small link: "Enquire to create your own experience with the herd" | Enquire |
+| Healing with Horses | Equine Assisted Therapy, Equine Assisted Reiki + Somatic Healing, plus a small link: "Enquire to create your own experience with the herd" | Enquire |
 | Yoga & Events | Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin, Equine Meditation Group (date TBC, not on Setmore yet) | Book |
 | Retreats | Sacred Soil. Sacred Soul. — 2 Night Women's Glamping Retreat (Oct 16–18, 2026), March Retreat (TBC). Small link: "Private Groups & Corporate Bookings Available" | Book |
 | Our Practitioners | One-paragraph summary of modalities on offer (Naturopathy, Osteopathy/Somatic Experiencing, Psychotherapy/Hypnotherapy, Energy Healing, Psychology/EMDR, Women's Health Massage + more) | Enquire |
@@ -128,7 +128,7 @@ Single flat list of offerings, each with name + CTA button. No separate photo re
 | Offering | CTA |
 |---|---|
 | Equine Assisted Therapy — $150 (60 min, one-on-one) | Enquire |
-| Equine Assisted Reiki Healing — $250 (75 min, one-on-one) | Enquire |
+| Equine Assisted Reiki + Somatic Healing — $250 (75 min, one-on-one) | Enquire |
 | Equine Assisted Therapy + Private Yin Yoga — $300 (2¼ hrs, one-on-one) | Enquire |
 | Private Yin Yoga with Reiki — $200 (90 min, one-on-one) | Enquire |
 | Equine Meditation Group (date TBC, not on Setmore yet) | Enquire |
