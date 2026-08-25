@@ -586,7 +586,6 @@
       <a href="retreats.html">Retreats</a>
       <div class="drop-menu">
         <a href="retreat-october.html">Sacred Soil. Sacred Soul.</a>
-        <a href="retreat-march.html">March Retreat</a>
         <a href="corporate-retreats.html">Corporate Retreats</a>
       </div>
     </li>
@@ -703,13 +702,12 @@
 
       <!-- Retreats -->
       <div class="offer-card rev d2" id="retreats">
-        <img src="./brand_assets/retreatplacecard.jpg" alt="Yoga and wellness retreats Victoria &mdash; October and March retreats at Yoga Farm 3217">
+        <img src="./brand_assets/retreatplacecard.jpg" alt="Yoga and wellness retreats Victoria &mdash; Sacred Soil retreat at Yoga Farm 3217">
         <div class="offer-overlay"></div>
         <div class="offer-body">
           <h3 class="offer-title">Retreats</h3>
           <ul class="offer-list">
             <li><a href="retreat-october.html" style="color:inherit;">Sacred Soil. Sacred Soul. &#8211; 2 Night Women&rsquo;s Glamping Retreat, October 16&ndash;18, 2026</a></li>
-            <li class="offer-link"><a href="#contact" onclick="return setInterest('March Retreat', event)">March Retreat &#8211; Enquire</a></li>
             <li class="offer-link"><a href="corporate-retreats.html">Private Groups &amp; Corporate Bookings Available</a></li>
           </ul>
           <div class="offer-btns">
@@ -743,7 +741,7 @@
   <div class="testi-inner">
     <div class="testi-head">
       <div class="sec-label rev">Stories from the Farm</div>
-      <h2 class="sec-title rev d1"><em>What</em> People Say</h2>
+      <h2 class="sec-title rev d1"><em>What</em> people say</h2>
     </div>
     <div class="testi-grid rev">
       <div class="testi-card">
@@ -773,22 +771,19 @@
   </div>
 </section>
 
-<!-- Newsletter — hidden until a real email provider (Mailchimp or similar) is wired up.
-     The form/JS below is left intact in the CSS/script so it's a one-line restore: just
-     un-comment this block once FORMSPREE-style ESP integration is ready.
 <section class="newsletter" id="newsletter">
   <div class="newsletter-inner">
     <div class="sec-label rev" style="color:var(--sage-dark);">Stay in the Loop</div>
-    <h2 class="sec-title rev d1" style="font-size:clamp(1.8rem,3vw,2.4rem);"><em>Stay</em> Connected</h2>
+    <h2 class="sec-title rev d1" style="font-size:clamp(1.8rem,3vw,2.4rem);"><em>Stay</em> connected</h2>
     <p class="rev d2" style="font-size:1rem;color:var(--earth-mid);margin-bottom:32px;line-height:1.7;">Seasonal updates, retreat dates, and gentle reminders to come back to yourself.</p>
-    <form id="newsletter-form" class="newsletter-form rev d3" onsubmit="submitNewsletter(event)">
-      <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
+    <form id="newsletter-form" class="newsletter-form rev d3" action="https://facebook.us2.list-manage.com/subscribe/post?u=2af6fd2364b35515702c6a498&amp;id=1b7a9353d3&amp;f_id=007fc1e3f0" method="post" target="_blank" onsubmit="return submitNewsletter(event)">
+      <input type="email" class="newsletter-input" name="EMAIL" placeholder="your@email.com" required aria-label="Email address">
+      <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_2af6fd2364b35515702c6a498_1b7a9353d3" tabindex="-1" value=""></div>
       <button type="submit" class="newsletter-btn">Sign Up</button>
     </form>
     <div class="newsletter-msg" id="newsletter-msg"></div>
   </div>
 </section>
--->
 
 
 <!-- Contact -->
@@ -822,20 +817,16 @@
         <div class="fg">
           <label class="flabel" for="interested">I'm interested in</label>
           <select class="fselect" id="interested" name="Interested In">
-            <option value="">Select an offering&hellip;</option>
             <option>Equine Assisted Therapy &mdash; $150</option>
             <option>Equine Assisted Reiki + Somatic Healing &mdash; $250</option>
-            <option>Equine Assisted Therapy + Private Yin Yoga &mdash; $300</option>
+            <option>Equine Assisted Therapy + Yin Yoga &mdash; $300</option>
             <option>Private Yin Yoga with Reiki &mdash; $200</option>
             <option>Reiki with Anna &mdash; $80</option>
             <option>Gift Cards</option>
             <option>Yin Yoga &amp; Meditation</option>
             <option>Monthly Fire Horse Sessions</option>
-            <option>Summer Solstice Fire Horse Session</option>
             <option>Seasonal Healing Sounds with Yin</option>
-            <option>Equine Meditation Group</option>
             <option>Sacred Soil. Sacred Soul.</option>
-            <option>March Retreat</option>
             <option>Corporate Retreats</option>
             <option>Room Rental / Practitioners</option>
             <option>General Enquiry</option>
@@ -845,6 +836,7 @@
           <label class="flabel" for="f-message">Message</label>
           <textarea class="ftextarea" id="f-message" name="Message" placeholder="Tell us a little about yourself and what brings you here&hellip;"></textarea>
         </div>
+        <input type="text" name="_gotcha" style="position:absolute;left:-5000px;" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="fsub" id="fsub">Send Message</button>
       </form>
       <div class="con-details">
@@ -943,12 +935,14 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
 document.querySelectorAll('.rev').forEach(el => obs.observe(el));
 
-// Newsletter
+// Newsletter — submits directly to Mailchimp (target="_blank" opens their confirmation
+// page in a new tab, per Mailchimp's own embedded-form pattern); the honeypot field
+// above must stay empty and hidden.
 function submitNewsletter(e) {
-  e.preventDefault();
   const msg = document.getElementById('newsletter-msg');
-  msg.textContent = "Thanks! We'll be in touch.";
-  e.target.reset();
+  msg.textContent = "Thanks! Check the new tab to confirm your subscription.";
+  setTimeout(() => e.target.reset(), 100);
+  return true;
 }
 
 // Mobile nav

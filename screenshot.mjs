@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import puppeteer from 'npm:puppeteer';
 import { existsSync, mkdirSync, readdirSync } from 'fs';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
@@ -15,13 +15,18 @@ const nums = existing.map(f => parseInt(f.match(/screenshot-(\d+)/)?.[1] || '0',
 const n = nums.length ? Math.max(...nums) + 1 : 1;
 const filename = join(outDir, `screenshot-${n}${label}.png`);
 
-// Try to find puppeteer executable
-const possibleExecs = [
-  'C:/Users/rimmeh/.cache/puppeteer/chrome/win64-131.0.6778.264/chrome-win64/chrome.exe',
-  'C:/Users/nateh/.cache/puppeteer/chrome/win64-131.0.6778.264/chrome-win64/chrome.exe',
-];
+// Find puppeteer's cached Chrome executable (version-agnostic)
+function findCachedChrome() {
+  const cacheRoot = 'C:/Users/rimmeh/.cache/puppeteer/chrome';
+  if (!existsSync(cacheRoot)) return undefined;
+  for (const entry of readdirSync(cacheRoot)) {
+    const candidate = join(cacheRoot, entry, 'chrome-win64', 'chrome.exe');
+    if (existsSync(candidate)) return candidate;
+  }
+  return undefined;
+}
 
-const execPath = possibleExecs.find(p => existsSync(p));
+const execPath = findCachedChrome();
 
 const browser = await puppeteer.launch({
   headless: true,

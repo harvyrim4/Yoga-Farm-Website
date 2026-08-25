@@ -21,20 +21,21 @@ This file holds locked-in rules only. For current build progress, open items, an
 
 ## Local Server
 - **Always serve on localhost** — never screenshot a `file:///` URL.
-- Start the dev server: `node serve.mjs` (serves the project root at `http://localhost:3000`)
+- Start the dev server: `node serve.mjs` (serves the project root at `http://localhost:3000`). **On this dev machine (user `rimmeh`), Node.js itself cannot be installed — it's blocked by org/device policy (winget install fails with "Organization policies are preventing installation," MSI error 1625).** `deno run --allow-net --allow-read serve.mjs` runs the identical script and works — Deno is already installed and unaffected by that policy. Prefer real Node if it's ever available; fall back to this Deno invocation otherwise.
 - `serve.mjs` lives in the project root. Start it in the background before taking any screenshots.
 - If the server is already running, do not start a second instance.
 
 ## Screenshot Workflow
-- Puppeteer is installed at `C:/Users/nateh/AppData/Local/Temp/puppeteer-test/`. Chrome cache is at `C:/Users/nateh/.cache/puppeteer/`.
-- **Always screenshot from localhost:** `node screenshot.mjs http://localhost:3000`
+- Puppeteer's Chrome is cached at `C:/Users/rimmeh/.cache/puppeteer/chrome/` (version folder name will drift as Puppeteer updates — `screenshot.mjs` scans that directory for whatever version is present rather than hardcoding one).
+- **Always screenshot from localhost:** `node screenshot.mjs http://localhost:3000` — or, on this machine where Node can't be installed (see Local Server above): `deno run --allow-net --allow-read --allow-write --allow-env --allow-run --allow-sys screenshot.mjs http://localhost:3000`. `screenshot.mjs`'s `puppeteer` import is written as `npm:puppeteer` specifically so Deno can resolve it (Deno also understands a plain `'puppeteer'` specifier under Node, so this doesn't break a real-Node run).
 - Screenshots are saved automatically to `./temporary screenshots/screenshot-N.png` (auto-incremented, never overwritten).
-- Optional label suffix: `node screenshot.mjs http://localhost:3000 label` → saves as `screenshot-N-label.png`
-- `screenshot.mjs` lives in the project root. Use it as-is.
+- Optional label suffix: `... screenshot.mjs http://localhost:3000 label` → saves as `screenshot-N-label.png`
+- `screenshot.mjs` lives in the project root. Use it as-is (it's already been adapted for Deno per above — don't revert the `npm:puppeteer` import or the version-scanning Chrome lookup).
+- This site uses scroll-triggered reveal animations (`.rev` → `.vis` via a one-shot `IntersectionObserver`, see the homepage's `obs` in its inline `<script>`). A screenshot taken immediately on page load only shows whatever was already in the initial viewport — everything below the fold will appear blank (`opacity:0`) unless the page is actually scrolled through first. For a full-page capture, scroll down the page in several steps (with a short pause after each) before taking the shot, then scroll back to top.
 - After screenshotting, read the PNG from `temporary screenshots/` with the Read tool — Claude can see and analyze the image directly.
 - When comparing, be specific: "heading is 32px but reference shows ~24px", "card gap is 16px but should be 24px"
 - Check: spacing/padding, font size/weight/line-height, colors (exact hex), alignment, border-radius, shadows, image sizing
-- **Use this `screenshot.mjs` / Puppeteer workflow for all visual QA on this project. Do not substitute the Playwright skill for this** — it's reserved for other testing needs, not the reference-image comparison loop.
+- **Use this `screenshot.mjs` / Puppeteer workflow for all visual QA on this project. Do not substitute the Playwright skill for this** — it's reserved for other testing needs, not the reference-image comparison loop. Running the same sanctioned script through Deno (because Node can't be installed here) is not a substitution of this rule — it's the same tool, same Puppeteer, same Chrome binary, just a different JS runtime executing it.
 
 ## Output Defaults
 - Single `index.html` file, all styles inline, unless user says otherwise
@@ -85,7 +86,7 @@ Six items only, in this order:
 1. About
 2. Healing with Horses
 3. Yoga & Events
-4. Retreats (dropdown: Sacred Soil. Sacred Soul. / March Retreat / Corporate Retreats)
+4. Retreats (dropdown: Sacred Soil. Sacred Soul. / Corporate Retreats — March Retreat is currently unpublished, see STATUS.md)
 5. Our Practitioners
 6. Contact
 
@@ -107,8 +108,8 @@ Six items only, in this order:
 | Card | Offerings inside | CTA button |
 |---|---|---|
 | Healing with Horses | Equine Assisted Therapy, Equine Assisted Reiki + Somatic Healing, plus a small link: "Enquire to create your own experience with the herd" | Enquire |
-| Yoga & Events | Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin, Equine Meditation Group (date TBC, not on Setmore yet) | Book |
-| Retreats | Sacred Soil. Sacred Soul. — 2 Night Women's Glamping Retreat (Oct 16–18, 2026), March Retreat (TBC). Small link: "Private Groups & Corporate Bookings Available" | Book |
+| Yoga & Events | Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin | Book |
+| Retreats | Sacred Soil. Sacred Soul. — 2 Night Women's Glamping Retreat (Oct 16–18, 2026). Small link: "Private Groups & Corporate Bookings Available" | Book |
 | Our Practitioners | One-paragraph summary of modalities on offer (Naturopathy, Osteopathy/Somatic Experiencing, Psychotherapy/Hypnotherapy, Energy Healing, Psychology/EMDR, Women's Health Massage + more) | Enquire |
 
 **4. Testimonials strip**
@@ -117,7 +118,7 @@ Six items only, in this order:
 - Do not embed the live Google reviews widget on the homepage — that stays only on the dedicated testimonials page
 
 **5. Newsletter signup**
-- Email field + "Sign up" button. Mailchimp integration TBD — build the form so it's easy to wire up later.
+- Email field + "Sign up" button, POSTs directly to Anna's real Mailchimp embedded-form endpoint (opens in a new tab, per Mailchimp's own pattern) — includes the required hidden honeypot field Mailchimp generates alongside the real one.
 
 **6. Footer**
 - Address, contact email (yogafarm3217@gmail.com), social links, "Reviews" link
@@ -129,19 +130,18 @@ Single flat list of offerings, each with name + CTA button. No separate photo re
 |---|---|
 | Equine Assisted Therapy — $150 (60 min, one-on-one) | Enquire |
 | Equine Assisted Reiki + Somatic Healing — $250 (75 min, one-on-one) | Enquire |
-| Equine Assisted Therapy + Private Yin Yoga — $300 (2¼ hrs, one-on-one) | Enquire |
+| Equine Assisted Therapy + Yin Yoga — $300 (2¼ hrs) | Enquire |
 | Private Yin Yoga with Reiki — $200 (90 min, one-on-one) | Enquire |
-| Equine Meditation Group (date TBC, not on Setmore yet) | Enquire |
-| Gift Cards (for an amount or a specific experience) | Enquire |
-| Yin Yoga & Meditation | Book |
+| Reiki with Anna — $80 (45 min, Wellbeing Room) | Enquire |
+| Gift Cards — digital, any amount, via Square | Book |
+| Sacred Soil. Sacred Soul. (Oct 16–18, 2026) | Book |
 | Monthly Fire Horse Sessions — $80 (2.5 hrs, group, last Sunday of the month) | Book |
 | Seasonal Healing Sounds with Yin — $40 (1.5 hrs, group, quarterly) | Book |
-| Summer Solstice Fire Horse Session | Book |
-| Sacred Soil. Sacred Soul. (Oct 16–18, 2026) | Book |
-| March Retreat (dates TBC) | Book |
+| Yin Yoga & Meditation — $22 (75 min) | Book |
 | Corporate Retreats | Enquire |
-| Our Practitioners (room rentals) | Enquire |
-| Reiki with Anna — $80 (Wellbeing Room) | Enquire |
+| Room Rental Enquiries (Our Practitioners) | Enquire |
+
+Equine Meditation Group is currently pulled from every listing (offerings page, homepage dropdown) — Anna's site notes said it and Summer Solstice Fire Horse Session "will be added closer to the events." Not deleted from history, just not listed as a live offering right now — see STATUS.md.
 
 - Homepage hero's "Book" button links to this page filtered/scrolled to Book items
 - Homepage hero's "Enquire" button links to this page filtered/scrolled to Enquire items
@@ -159,18 +159,20 @@ Single flat list of offerings, each with name + CTA button. No separate photo re
 - **Setmore confirmed** as the booking system (decision made 2026-08-13; may be revisited for Supabase/Hostinger-based alternatives down the road, but not an active project right now).
 - The "Book" flow stays isolated and clearly separated per page: each page with Setmore-eligible items defines its own `SETMORE_LINKS` JS object (e.g. in `offerings.html`, `retreat-october.html`, `retreat-march.html`) mapping an item key to its Setmore class URL. A `bookNow(key, event)` helper opens the Setmore link in a new tab if one is set, otherwise falls through to the item's Enquire-flow href. This keeps swapping booking platforms later a one-object edit, not a rebuild.
 - Items not yet on Setmore (e.g. Equine Meditation Group) route to Enquire instead of Book until they're added.
+- **Gift Cards** are the one exception to the Setmore pattern: the Book button links straight out to Anna's Square gift card purchase page (`https://app.squareup.com/gift/MLJRMY16WEQ72/order`, opens in a new tab) rather than Setmore or the Formspree enquiry flow, since Square handles the payment directly.
 - "Enquire" flows (including Corporate Retreats) submit via **Formspree** (no `mailto:`/email-client popup) — see STATUS.md for the live endpoint. Falls back to `mailto:` automatically if `FORMSPREE_ENDPOINT` is ever unset.
 - Each Enquire form must set a specific email subject line naming the offering, e.g. "Website Enquiry: Equine Assisted Therapy", "Website Enquiry: Corporate Retreats"
 
-## Retreat pages (Sacred Soil. Sacred Soul. at `retreat-october.html`, March Retreat at `retreat-march.html`)
+## Retreat pages (Sacred Soil. Sacred Soul. at `retreat-october.html`)
 - Hero photo, dates, short paragraph, what's included
 - Book button for deposit payment, wired to Setmore per the Booking & payment rules above
 - Text near the button: "Deposit secures your spot; balance invoiced separately closer to the date"
 - Sacred Soil. Sacred Soul. pricing: Early Bird $1,850, $500 deposit secures a spot — display this near the Book button
+- `retreat-march.html` still exists on disk with a March Retreat page built out, but is currently unpublished (unlinked from nav/offerings, `noindex` meta tag added) — see STATUS.md for why and how to bring it back
 
 ## Corporate Retreats page
 - Enquire form fields: Name, Company Name, Phone Number, Email, Number of Guests
-- Tick boxes: Full Day / Half Day
+- Tick boxes: Full Day / Half Day / Overnight
 - Tick boxes: Offerings wanted — Yoga, Equine, Sound
 - Checkboxes: Presenting Space, Accommodation, Catering
 - Submits to yogafarm3217@gmail.com with subject "Website Enquiry: Corporate Retreats"
