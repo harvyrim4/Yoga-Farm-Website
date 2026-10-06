@@ -86,7 +86,7 @@ Six items only, in this order:
 1. About
 2. Healing with Horses
 3. Yoga & Events
-4. Retreats (dropdown: Sacred Soil. Sacred Soul. / Corporate Retreats — March Retreat is currently unpublished, see STATUS.md)
+4. Retreats (dropdown: Corporate Retreats — Sacred Soil. Sacred Soul. and March Retreat are currently unpublished while the retreat offering is reworked, see STATUS.md)
 5. Our Practitioners
 6. Contact
 
@@ -109,7 +109,7 @@ Six items only, in this order:
 |---|---|---|
 | Healing with Horses | Equine Assisted Therapy, Equine Assisted Reiki + Somatic Healing, plus a small link: "Enquire to create your own experience with the herd" | Enquire |
 | Yoga & Events | Yin Yoga & Meditation, Monthly Fire Horse Sessions, Seasonal Healing Sounds with Yin | Book |
-| Retreats | Sacred Soil. Sacred Soul. — 2 Night Women's Glamping Retreat (Oct 16–18, 2026). Small link: "Private Groups & Corporate Bookings Available" | Book |
+| Retreats | Placeholder "new retreat dates coming soon" message (Sacred Soil. Sacred Soul. currently unpublished, see STATUS.md). Small link: "Private Groups & Corporate Bookings Available" | Enquire |
 | Our Practitioners | One-paragraph summary of modalities on offer (Naturopathy, Osteopathy/Somatic Experiencing, Psychotherapy/Hypnotherapy, Energy Healing, Psychology/EMDR, Women's Health Massage + more) | Enquire |
 
 **4. Testimonials strip**
@@ -134,7 +134,6 @@ Single flat list of offerings, each with name + CTA button. No separate photo re
 | Private Yin Yoga with Reiki — $200 (90 min, one-on-one) | Enquire |
 | Reiki with Anna — $80 (45 min, Wellbeing Room) | Enquire |
 | Gift Cards — digital, any amount, via Square | Book |
-| Sacred Soil. Sacred Soul. (Oct 16–18, 2026) | Book |
 | Monthly Fire Horse Sessions — $80 (2.5 hrs, group, last Sunday of the month) | Book |
 | Seasonal Healing Sounds with Yin — $40 (1.5 hrs, group, quarterly) | Book |
 | Yin Yoga & Meditation — $22 (75 min) | Book |
@@ -164,6 +163,7 @@ Equine Meditation Group is currently pulled from every listing (offerings page, 
 - Each Enquire form must set a specific email subject line naming the offering, e.g. "Website Enquiry: Equine Assisted Therapy", "Website Enquiry: Corporate Retreats"
 
 ## Retreat pages (Sacred Soil. Sacred Soul. at `retreat-october.html`)
+- **Currently unpublished** (as of 2026-10-06) while the retreat offering is reworked — unlinked from nav/offerings/homepage, `noindex` meta tag added, removed from `sitemap.xml`. Page content kept on disk as-is, not deleted. See STATUS.md for current status; rules below describe the page as last published and apply again once it's revived or replaced.
 - Hero photo, dates, short paragraph, what's included
 - Book button for deposit payment, wired to Setmore per the Booking & payment rules above
 - Text near the button: "Deposit secures your spot; balance invoiced separately closer to the date"
